@@ -37,6 +37,13 @@ namespace BLL
             return _uplDAL.InsertDocument_step1(criteria);
         }
 
+
+        public string InsertDocument_po_step1(Model.Criteria.Document criteria)
+        {
+            return _uplDAL.InsertDocument_po_step1(criteria);
+        }
+
+
         public int Delete_Document(Model.Criteria.Document criteria)
         {
             return _uplDAL.Delete_Document(criteria);

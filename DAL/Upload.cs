@@ -153,11 +153,15 @@ namespace DAL
             sql += "doc_name,";
             sql += "create_by,";
             sql += "content,";
+            sql += "supplier_id,";
+            sql += "supplier_name,";
             sql += "secure_prepare) Values(";
             sql += "'" + criteria.doc_id + "',";
             sql += "'" + criteria.doc_name + "',";
             sql += "'" + criteria.create_by + "',";
             sql += "'" + criteria.content + "',";
+            sql += "'" + criteria.suplier_id + "',";
+            sql += "'" + criteria.supplier_name + "',";
             sql += "'" + criteria.secure_prepare + "')";
 
             
@@ -168,6 +172,35 @@ namespace DAL
 
            return ret.ToString();
         }
+
+
+        public string InsertDocument_po_step1(Model.Criteria.Document criteria)
+        {
+
+            Class.clsDB db = new Class.clsDB();
+            string sql;
+            sql = "Insert into document(";
+            sql += "doc_id,";
+            sql += "doc_name,";
+            sql += "create_by,";
+            sql += "content,";
+            sql += "secure_prepare) Values(";
+            sql += "'" + criteria.doc_id + "',";
+            sql += "'" + criteria.doc_name + "',";
+            sql += "'" + criteria.create_by + "',";
+            sql += "'" + criteria.content + "',";
+
+            sql += "'" + criteria.secure_prepare + "')";
+
+
+
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+
+            return ret.ToString();
+        }
+
 
 
         public int Update_Upload_date(Model.Criteria.Document criteria)

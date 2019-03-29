@@ -176,7 +176,7 @@ initCombo();
                     {
                         try
                         {
-                            ClsModule mdl = new ClsModule();
+                            ClsModule mdl = new ClsModule(); 
                             Doc.doc_id = mdl.getRuningNoDoc();
                             Doc.doc_name = fu.FileName;
                             Doc.create_by = Session["NAME"].ToString();
@@ -184,6 +184,8 @@ initCombo();
                             Doc.attach_file_name = Doc.doc_id + ".zip";
                             Doc.content = Content.Text;
                             Doc.pr_flag = 1;
+                            Doc.suplier_id = ddlCustomer.SelectedValue.ToString();
+                            Doc.supplier_name = ddlCustomer.Text;
 
                             string s_newfilename = Doc.doc_id + fileExtension;
                             fu.PostedFile.SaveAs(folderPath + s_newfilename);
