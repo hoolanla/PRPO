@@ -48,6 +48,7 @@
     <Compile Include="Authorize.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="ManageAccount.cs" />
+    <Compile Include="PO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Upload.cs" />
   </ItemGroup>
