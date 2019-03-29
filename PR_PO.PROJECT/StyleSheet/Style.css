@@ -1,0 +1,773 @@
+﻿/* 
+    ###### Guideline
+    
+    .{}  >> class name
+    #x {} >> id=""
+
+    table {
+        it means >> Element (tag) >> table
+    }
+
+    table .header{
+        it means >> Element (tag) >> table and class name="header"
+    }
+
+     table tr{
+        it means >> Element (tag) >> table and Element (tr)
+    }
+
+    apply 2 styles or more >> "ft12 b" , "ft16 b", "ft16 b doubleUnderline", "ft12 b doubleUnderline"
+}
+    
+*/
+table {
+    font-family: Tahoma, Arial,"MS Sans Serif";	
+	font-size: 12px;
+    border-spacing: 0px;
+    border-width: 0 0 0 0;
+    width:100%;
+}
+
+
+table .criteria, div .criteria {
+    /*style="background-color:#999999;width:100%;" border="0"*/
+    background-color: #63C9FF;
+    /*font-weight: bold;*/
+    color: #000000;
+    border-bottom: solid 2px #23A0E3;
+}
+
+table .criteria .form-group, div .criteria .form-group {
+    margin-bottom: 40px;
+}
+
+/* override class .btn for radius button */
+table .criteria .btn, div .criteria .btn{
+    font-weight:bold;
+}
+
+
+table .header {
+    background-color:#CCCCCC;
+    font-weight:bold;
+}
+
+table .alternatedrow {
+   background-color: #F4F4F4;
+}
+
+table tr {
+    height:25px;
+    text-align:left;
+}
+
+table td {
+    text-align:left;
+}
+
+
+div .criteria {
+    z-index:-1;
+}
+
+/*--- Goods Issue ----------------------------*/
+.GoodsIssue .col1 {
+    width:250px; 
+    padding-right: 0px;
+}
+.GoodsIssue .col1 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.GoodsIssue .col1 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsIssue .col2 {
+    width:250px; 
+    padding-right: 0px;
+}
+.GoodsIssue .col2 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.GoodsIssue .col2 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsIssue .col3 {
+    width:270px; 
+    padding-right: 0px;
+}
+.GoodsIssue .col3 .s-col1 {
+    width:100px;
+    padding:0px;
+}
+.GoodsIssue .col3 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsIssue .col4 {
+    width:255px; 
+    padding-right: 0px;
+}
+.GoodsIssue .col4 .s-col1 {
+    width:120px;
+    padding:0px;
+}
+.GoodsIssue .col4 .s-col2 {
+    width:115px;
+    padding:0px;
+}
+/*----------------------------------------------*/
+
+/*--- Goods Return ----------------------------*/
+.GoodsReturn .col1 {
+    width:250px; 
+    padding-right: 0px;
+}
+.GoodsReturn .col1 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.GoodsReturn .col1 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsReturn .col2 {
+    width:250px; 
+    padding-right: 0px;
+}
+.GoodsReturn .col2 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.GoodsReturn .col2 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsReturn .col3 {
+    width:270px; 
+    padding-right: 0px;
+}
+.GoodsReturn .col3 .s-col1 {
+    width:100px;
+    padding:0px;
+}
+.GoodsReturn .col3 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.GoodsReturn .col4 {
+    width:255px; 
+    padding-right: 0px;
+}
+.GoodsReturn .col4 .s-col1 {
+    width:120px;
+    padding:0px;
+}
+.GoodsReturn .col4 .s-col2 {
+    width:115px;
+    padding:0px;
+}
+/*----------------------------------------------*/
+
+/*--- Stock Adjust Order ----------------------------*/
+.StockAdjustOrder .col1 {
+    width:255px; 
+    padding-right: 0px;
+}
+.StockAdjustOrder .col1 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.StockAdjustOrder .col1 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.StockAdjustOrder .col2 {
+    width:255px; 
+    padding-right: 0px;
+}
+.StockAdjustOrder .col2 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.StockAdjustOrder .col2 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.StockAdjustOrder .col3 {
+    width:275px; 
+    padding-right: 0px;
+}
+.StockAdjustOrder .col3 .s-col1 {
+    width:100px;
+    padding:0px;
+}
+.StockAdjustOrder .col3 .s-col2 {
+    width:150px;
+    padding:0px;
+}
+
+
+.StockAdjustOrder .col4 {
+    width:240px; 
+    padding-right: 0px;
+}
+.StockAdjustOrder .col4 .s-col1 {
+    width:120px;
+    padding:0px;
+}
+.StockAdjustOrder .col4 .s-col2 {
+    width:120px;
+    padding:0px;
+}
+/*----------------------------------------------*/
+
+/*--- Stock Adjust - Product List ----------------------------*/
+.StockAdjust-ProductList .col1 {
+    width:286px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col1 .s-col1 {
+    width:65px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col1 .s-col2 {
+    width:200px;
+    padding:0px;
+}
+
+
+.StockAdjust-ProductList .col2 {
+    width:380px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col2 .s-col1 {
+    width:70px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col2 .s-col2 {
+    width:265px;
+    padding:0px;
+}
+
+
+.StockAdjust-ProductList .col3 {
+    width:295px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col3 .s-col1 {
+    width:55px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col3 .s-col2 {
+    width:220px;
+    padding:0px;
+}
+
+
+.StockAdjust-ProductList .col4 {
+    width:276px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col4 .s-col1 {
+    width:65px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col4 .s-col2 {
+    width:152px;
+    padding:0px;
+}
+
+.StockAdjust-ProductList .col5 {
+    width:190px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col5 .s-col1 {
+    width:80px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col5 .s-col2 {
+    width:80px;
+    padding:0px;
+}
+
+.StockAdjust-ProductList .col6 {
+    width:202px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col6 .s-col1 {
+    width:75px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col6 .s-col2 {
+    width:80px;
+    padding:0px;
+}
+
+.StockAdjust-ProductList .col7 {
+    width:215px; 
+    padding-right: 0px;
+}
+.StockAdjust-ProductList .col7 .s-col1 {
+    width:52px;
+    padding:0px;
+}
+.StockAdjust-ProductList .col7 .s-col2 {
+    width:144px;
+    padding:0px;
+}
+
+/*----------------------------------------------*/
+
+
+.ft12 {
+	font-family: Tahoma, Arial,"MS Sans Serif";
+	font-size: 12px;
+}
+
+.b {
+    font-weight:bold;
+}
+
+.ft16 {
+	font-family: Tahoma, Arial,"MS Sans Serif";	
+	font-size: 16px;
+}
+
+.doubleUnderline {
+    text-decoration:underline;
+    border-bottom: 1px solid #000;
+}
+
+/*------------------------- JqGrid Style customize ---------------------------*/
+
+
+/*.ui-jqgrid {
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+.ui-jqgrid-view,
+.ui-jqgrid-hdiv,
+.ui-jqgrid-bdiv {
+    width: auto !important;
+}*/
+
+/**.ui-jqgrid-hdiv .ui-jqgrid-htable {
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+*.ui-jqgrid-bdiv .ui-jqgrid-btable {
+    max-width: 100% !important;
+    width: auto !important;
+}
+
+*.ui-jqgrid-pager {
+    width: 100% !important;
+    width: auto !important;
+}*/
+
+*.ui-jqgrid .ui-pg-table {
+    margin: auto;
+}
+
+*.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    color: white;
+    background-color: #23A0E3;
+    border: 1px solid #788691;
+}
+
+*.ui-jqgrid table, tr, td, p, div {
+    /*font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;*/
+    font-size: 12px;
+}
+
+*.ui-widget-content {
+    border: 1px solid #a6c9e2;
+    /*background: #C6E2F7;*/
+    color: #222222;
+    vertical-align: middle;
+    height: auto;
+}
+
+*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 11px;
+    color: white;
+    background: #23a0e3;
+}
+
+.ui-th-column-header {
+    text-align: center;
+}
+
+*.ui-jqgrid-htable thead tr {
+    color: white;
+    background: #23a0e3;
+}
+
+.myAltRowClassOdd {
+    color: black;
+    background: #c6e2f7;
+}
+
+.myRowClassColor_0 {
+    color: black;
+    background: #FFFFFF;
+}
+
+.myRowClassColor_1 {
+    color: black;
+    background: #c6e2f7;
+}
+
+.myRowClassColor_3 {
+    color: black;
+    background: #43e96c;
+}
+
+
+
+*.ui-jqgrid-view table {
+    padding: 0;
+}
+
+*.ui-jqgrid tr.jqgrow td {
+    padding: 4px inherit;
+    height: 20px !important;
+    height: auto;
+}
+
+*.ui-jqgrid-pager .ui-state-hover {
+    border: none;
+    background: none;
+    color: white;
+}
+
+*.ui-jqgrid-pager {
+    background-color: #23a0e3;
+}
+
+
+*.ui-jqgrid .ui-jqgrid-view input {
+    font-size: .8em;
+}
+
+*.ui-jqgrid-pager input {
+    border-radius: 0px;
+    color: black;
+}
+
+*.ui-jqgrid-bdiv tbody .ui-jqgrid-pager {
+    background-color: #23a0e3;
+}
+
+*.ui-jqgrid-pager table {
+    background-color: transparent;
+    color: white;
+    padding: 0;
+}
+
+*.ui-jqgrid-hdiv thead .ui-state-hover {
+    border: 1px solid white;
+    background: none;
+    color: white;
+}
+
+th.ui-th-column div {
+    white-space: normal !important;
+    height: auto !important;
+    padding: 2px;
+}
+
+.subgrid-data .tablediv {
+    /*padding: 15px 15px;*/
+    padding: 0px 0px;
+    margin-top: -12px;
+}
+
+*.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    color: black;
+    /*background: #E4F2FD;*/
+    background: #8DC0E8;
+    border: inherit;
+}
+/*.ui-widget-content .ui-jqgrid-bdiv .ui-jqgrid-btable .ui-state-hover {
+    color: black;
+    background: #E4F2FD;
+    border: inherit;
+}*/
+
+/**.ui-jqgrid-bdiv .ui-jqgrid-btable .ui-state-hover:not(th,.ui-pg-button) {
+    color: black;
+    background: #e4f2fd;
+    border: inherit;
+}*/
+
+/*.ui-widget-content .ui-jqgrid-bdiv .ui-jqgrid-btable .ui-row-ltr:not(.myAltRowClassOdd) {
+    color: black;
+    background: #C6E2F7;
+}*/
+
+*.ui-jqgrid-pager .ui-state-hover {
+    background: none;
+}
+
+*.ui-jqgrid .ui-pg-input {
+    height: auto;
+}
+
+*.ui-jqgrid tr.ui-row-ltr td {
+    border: 1px solid white;
+}
+
+*.ui-icon-plus {
+    background-position: center !important;
+    background-image: url(../Images/arrow-02.png) !important;
+}
+
+*.ui-icon-minus {
+    background-position: center !important;
+    background-image: url(../Images/arrow-01.png) !important;
+}
+/*----------------------------------------------------------------------------*/
+
+/* Goods Receive : Grid Table in Addnew / Edit Popup Form --------------------------------*/
+.good_receive {
+    width: 860px;
+}
+.good_receive .center {
+    text-align: center !important;
+}
+.good_receive .col1 {
+    width:80px; text-align:center;
+}
+.good_receive .col2 {
+    width:200px;
+}
+.good_receive .col3 {
+    width:300px;
+}
+.good_receive .col4 {
+    width:150px; text-align:right;
+}
+.good_receive .col5 {
+    width:50px; text-align:right;
+}
+.good_receive .col6 {
+    width:80px; text-align:center;
+}
+
+
+#grdfrm_ProductList input.qty {
+    width: 100px;
+    text-align: right;
+    padding :2px;
+    font-size: 14px;
+}
+/*------------------------------------------------*/
+
+/* override class form-control -------------------*/
+.form-control.mycustom {
+    height: 30px;
+    padding: 3px 12px;
+}
+
+.clear-both {
+    clear:both;
+}
+
+/*------ Goods Issue */
+.form-control.mycustom.goods-issue {
+    height: 25px;
+}
+
+/*------ Goods Return */
+.form-control.mycustom.goods-return {
+    height: 24px;
+}
+
+select.form-control.mycustom option {
+    height: 35px; 
+    padding:5px; 
+    line-height: 35px; 
+}
+
+/*------ Invoice Document */
+.Doc_Invoice_FrmPopup .form-control.mycustom {
+    height: 25px;
+}
+.Doc_Invoice_FrmPopup .form-control.mycustom-calendar {
+    height: 30px;
+}
+
+.Doc_Invoice_FrmPopup #dvProductList .TextBox { 
+    height: 24px; 
+    width: 100%; 
+}
+.Doc_Invoice_FrmPopup #dvProductList .Model { 
+
+}
+.Doc_Invoice_FrmPopup #dvProductList .Quantity { 
+    text-align: right;
+}
+.Doc_Invoice_FrmPopup #dvProductList .UnitPrice { 
+    text-align: right;
+}
+.Doc_Invoice_FrmPopup #dvProductList .Amount { 
+    text-align: right;
+}
+.Doc_Invoice_FrmPopup #dvProductList .Remark { 
+
+}
+
+/*------------------------------------------------*/
+
+/* override jqGrid class ui-jqgrid-bdiv */
+.ui-jqgrid-bdiv
+{
+    /* Hide Horizontal Scrollbar on jqgrid */
+    overflow-x : hidden !important;
+}
+
+.GoodsReceiveReport .nopadding , 
+.GoodsIssueReport .nopadding ,
+.GoodsReturnReport .nopadding ,
+.GoodsHistoryReport .nopadding ,
+.GoodsQuantityReport .nopadding ,  
+.GoodsMinimumQuantityReport .nopadding ,
+.StockAdjustmentReport .nopadding,
+.MProduct .nopadding,
+.MSupplier .nopadding,
+.MDepartment .nopadding,
+.MCategory .nopadding,
+.MUnit .nopadding,
+.GoodsIssue .nopadding,
+.GoodsReturn .nopadding,
+.StockAdjustment .nopadding,
+.StockAdjustOrder .nopadding,
+.StockAdjust-ProductList .nopadding,
+.Doc_Invoice .nopadding
+{
+    padding:0px;
+}
+
+/*------ Invoice Document */
+.Doc_Invoice .col1 {
+    padding-right:10px;
+}
+
+/*input .Doc_Invoice .Quantity{
+    height:30px;
+}*/
+
+/* Required Field ----------------------------------------*/
+.form-group.required .control-label:after,
+.row.required .control-label:after
+{ 
+    content:"*";
+    color:red;
+    font-family:"Courier New";/*, Courier, monospace*/
+    font-size: 16px;  
+    font-weight: bold;
+}
+
+/* Page Layout------------------ */
+.master-container {
+    width: 99% !important;
+}
+.master-container {
+    position: absolute;
+    /*top: 75px;*/
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0px;
+    clear: both;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+/* Button Style------------------ */
+.grid-button-delete {
+    display: block; 
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer; 
+    padding-top:5px; 
+    margin: 0 auto; 
+    /*color: inherit;*/ 
+    /*overflow: visible;*/
+}
+
+/* Message Not Found In Grid------------- */
+.emptyMsgDiv {
+    width: 300px;
+    margin: 5px 45%;
+    font-weight: bold;
+    color: #BB0039;
+}
+
+/*----------------------------------------*/
+.validateInt {
+}
+
+.validateDecimal {
+}
+
+/*-- override select2 --------------------*/
+.select2-search input {
+    font-size: 12px;
+    padding: 0px;
+}
+
+.select2-results .select2-highlighted {
+    background: #B6E2F5;
+    color: #0A0F73;
+}
+
+.select2-results .select2-result-label hr {
+    margin: 7px 2px;
+    background-color: #0592F7 !important;
+}
+
+.select2-results {
+    font-size: 12px;
+}
+
+.select2-input {
+    font-size: 12px;
+}

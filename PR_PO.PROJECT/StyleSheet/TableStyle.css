@@ -1,0 +1,175 @@
+﻿/* BASIC CSS STYLING TO MAKE IT LOOK PRETTIER */
+
+
+
+/* IE7: setting "separate" results in bad visuals; all other browsers work fine with either value */
+/* if set to "separate", then this rule is also needed to prevent double vertical borders on hover:
+table.ui-styled-table tr * + th, table.ui-styled-table tr * + td  { border-left-width: 0px !important; } */
+table.ui-styled-table {
+    border-collapse: collapse;
+}
+
+    /* undo the "bolding" that jQuery UI theme may cause on hovered elements
+/* IE7: does not support "inherit", so use a MS proprietary expression along with an IE <= 7 targeting hack
+        to make the visuals consistent across all supported browsers */
+    table.ui-styled-table td.ui-state-hover {
+        font-weight: inherit;
+        *font-weight: expression(this.parentNode.currentStyle['fontWeight']);
+    }
+
+    /* initally remove bottom border for all cells */
+    table.ui-styled-table th, table.ui-styled-table td {
+        border-bottom-width: 0px !important;
+    }
+
+    /* hovered-row cells should show bottom border (will be highlighted) */
+    table.ui-styled-table tbody tr:hover th,
+    table.ui-styled-table tbody tr:hover td {
+        border-bottom-width: 1px !important;
+    }
+
+    /* remove top border if the above row is being hovered to prevent double horizontal borders */
+    table.ui-styled-table tbody tr:hover + tr th,
+    table.ui-styled-table tbody tr:hover + tr td {
+        border-top-width: 0px !important;
+    }
+
+    /* last-row cells should always show bottom border (not necessarily highlighted if not hovered) */
+    /* IE7, IE8: selector dependent on CSS classes because of no support for :last-child */
+    table.ui-styled-table tbody tr.last-child th,
+    table.ui-styled-table tbody tr.last-child td {
+        border-bottom-width: 1px !important;
+    }
+
+    /* last-row cells should always show bottom border (not necessarily highlighted if not hovered) */
+    /* IE8 BUG: if these (unsupported) selectors are added to a rule, other selectors for that rule will stop working as well! */
+    /* IE9+, FF, Chrome: make sure the visuals are working even without the CSS classes crutch */
+    table.ui-styled-table tbody tr:last-child th,
+    table.ui-styled-table tbody tr:last-child td {
+        border-bottom-width: 1px !important;
+    }
+
+
+*.jtable tbody th {
+    color: white;
+}
+
+*.ui-widget-header {
+    border: none;
+    background: #01346d;
+    height: 34px;
+}
+
+*.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none;
+    background: #51A8FF;
+    height: 31px;
+}
+
+*.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: none;
+    background: #419839;
+}
+
+*.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: white;
+    font-size: 1em;
+}
+
+*.ui-tabs .ui-tabs-nav li a {
+    padding: 0.7em 1em;
+}
+/*.BlueTable {
+	margin:0px;padding:0px;
+	width:100%;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.BlueTable table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.BlueTable tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.BlueTable table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.BlueTable table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.BlueTable tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.BlueTable tr:hover td{
+	
+}
+.BlueTable tr:nth-child(odd){ background-color:#e8e9ea; }
+.BlueTable tr:nth-child(even)    { background-color:#ffffff; }.BlueTable td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.BlueTable tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.BlueTable tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.BlueTable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.BlueTable tr:first-child td{
+		background:-o-linear-gradient(bottom, #87cbdd 5%, #87cbdd 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #87cbdd), color-stop(1, #87cbdd) );
+	background:-moz-linear-gradient( center top, #87cbdd 5%, #87cbdd 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#87cbdd", endColorstr="#87cbdd");	background: -o-linear-gradient(top,#87cbdd,87cbdd);
+
+	background-color:#87cbdd;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.BlueTable tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #87cbdd 5%, #87cbdd 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #87cbdd), color-stop(1, #87cbdd) );
+	background:-moz-linear-gradient( center top, #87cbdd 5%, #87cbdd 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#87cbdd", endColorstr="#87cbdd");	background: -o-linear-gradient(top,#87cbdd,87cbdd);
+
+	background-color:#87cbdd;
+}
+.BlueTable tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.BlueTable tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}*/

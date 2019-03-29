@@ -1,0 +1,270 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+
+
+
+
+    <form method="post" action="./FrmApplicationPrepare.aspx?doc_id=2018022209&amp;signature=monyaphat.png&amp;page_count=1&amp;paper_type=L" id="form1">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="UdF0gxYpSVlgyzOV8NsYpX+iEecv7w+M/eo/YbfvEAjYxJu4PbvlY+gGykOKUInbsejTS67Lj9Qvmjyy+AKOBzQRSc94rLM1aTIzaVeKzgE=" />
+
+
+
+        <div>
+
+
+
+
+            <script type='text/javascript'>
+                function getMouseXY(e) {
+                    //document.getElementById('x').value = e.pageX || event.clientX;
+                    //document.getElementById('y').value = e.pageY || event.clientY;
+
+                    //var d = document.getElementById('signature');
+                    //d.style.position = "absolute";
+                    //d.style.left = e.pageX - 220 + 'px';
+                    //d.style.top = e.pageY - 20 + 'px';
+
+                    var dv = document.getElementById('signature1');
+                    dv.hidden = false;
+
+                    var d = document.getElementById('signature');
+                    d.style.position = "absolute";
+                    d.style.left = e.pageX - 0 + 'px';
+                    d.style.top = e.pageY - 0 + 'px';
+
+                    var paperType = document.getElementById('paper_type').value;
+
+                    var sizeScr = screen.width + 'x' + screen.height;
+                    var l = e.pageX;
+                    var t = e.pageY;
+
+
+
+
+                    if (paperType == "P") {
+
+                        switch (sizeScr) {
+                            case '1280x800':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1280x960':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1280x1024':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1360x768':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1366x768':
+                                l = e.pageX - 280;
+                                t = e.pageY - 8;
+                                break;
+                            case '1440x900':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1400x1050':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1600x900':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1600x1200':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1680x1050':
+                                l = e.pageX - 420;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1080':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1200':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1440':
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                            default:
+                                l = e.pageX - 300;
+                                t = e.pageY - 8;
+                                break;
+                        }
+                    }
+                    else {
+                        // Landscape
+
+                        switch (sizeScr) {
+                            case '1280x800':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1280x960':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1280x1024':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1366x768':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1360x768':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1400x1050':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1440x900':
+                                l = e.pageX - 130;
+                                t = e.pageY - 8;
+                                break;
+                            case '1600x900':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1600x1200':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1680x1050':
+                                l = e.pageX - 270;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1080':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1200':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            case '1920x1440':
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                            default:
+                                l = e.pageX - 100;
+                                t = e.pageY - 8;
+                                break;
+                        }
+
+                    }
+
+
+
+                    var dL = document.getElementById('dLeft');
+                    var dT = document.getElementById('dTop');
+                    //dL.value="'" + d.style.left - 428 + "'";
+                    //dT.value="'" + d.style.top - 490 + "'";
+                    document.getElementById('dLeft').value = "'" + l + "px'";
+                    document.getElementById('dTop').value = "'" + t + "px'";
+                    return true;
+                }
+            </script>
+
+            <style>
+                             p.serif {
+                                 font-family: Tahoma;
+                             }
+
+                             p.sansserif {
+                                 font-family: "PSL Chamnarn Pro";
+                             }
+
+                             p.form-pdf {
+                                 font-family: "PSL Chamnarn Pro";
+                                 /*font-size: 13px;*/
+                                 color: #333;
+                                 width: 137px;
+                                 position: absolute;
+                                 top: 669px;
+                                 left: 596px;
+                             }
+
+                             /*img {
+                   width: 100%;
+                   height: 300px;
+                }*/
+
+                             p.form-pdf-checkbox {
+                                 font-family: "PSL Chamnarn Pro";
+                                 font-size: 18px;
+                                 color: #333;
+                                 font: bold 12px/30px Tahoma;
+                             }
+
+                             p.form-pdf-checkbox {
+                                 font-family: "PSL Chamnarn Pro";
+                                 font-size: 20px;
+                                 color: #333;
+                                 position: absolute;
+                             }
+
+                             .container {
+                                 text-align: center;
+                             }
+
+
+
+                             @page {
+                                 size: A4;
+                                 margin: 0;
+                             }
+                             /*@media print {
+                     html, body {
+                         width: 210mm;
+                         height: 297mm;
+                     }
+                 }*/
+
+                             row {
+                                 margin-right: 0px !important;
+                             }
+
+                             .wrapper {
+                                 background: none !important;
+                             }
+
+                             body {
+                                 background-color: #ffffff;
+                             }
+            </style>
+
+            <div id="signature1">
+                <p id="signature" class="form-pdf"><img src="Images/monyaphat.png" width="120" height="30" /></p>
+            </div>
+            <div class="container container-table" style="background-color: #ffffff">
+                <div class="row vertical-center-row"><img src="PdfToImage/2018022209.PNG" height='790' width='1120' onmousedown='return  getMouseXY(event);' id="log" /></div>
+            </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MySql.Data.NET40</id>
+    <version>1.0.0</version>
+    <title>MySql.Data.NET40</title>
+    <authors>inmou</authors>
+    <owners>inmou</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MySql.Data For NET40</description>
+    <summary />
+  </metadata>
+</package>

@@ -1,0 +1,8 @@
+C:\_CODE\WEB_APP\ODS\ODS\Model\bin\Debug\Model.dll
+C:\_CODE\WEB_APP\ODS\ODS\Model\bin\Debug\Model.pdb
+C:\_CODE\WEB_APP\ODS\ODS\Model\obj\Debug\Model.dll
+C:\_CODE\WEB_APP\ODS\ODS\Model\obj\Debug\Model.pdb
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Model\bin\Debug\Model.dll
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Model\bin\Debug\Model.pdb
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Model\obj\Debug\Model.dll
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Model\obj\Debug\Model.pdb

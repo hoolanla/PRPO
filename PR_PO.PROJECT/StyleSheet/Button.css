@@ -1,0 +1,49 @@
+﻿
+/********* CLEARFIX *********/
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+
+/******** DEMO STYLES ********/
+.container {
+	margin:0 auto;
+	width:960px;
+}
+
+.btn {
+	background-color: #f6f6f6;	
+	background-image: -webkit-linear-gradient(top, rgb(246, 246, 246), rgb(225, 225, 225));	
+	border: 1px solid #ccc;
+	color:#555;
+	display:inline-block;
+	padding:5px 15px;
+	text-decoration:none;
+	text-shadow:0 2px rgba(255,255,255,.9);	
+	-webkit-border-radius:20px;	
+	-webkit-box-shadow:0 1px rgba(0,0,0,.35);
+    margin: 0;	
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+	.btn:active {
+		background-color: #f6f6f6;
+		background-image: linear-gradient(bottom, rgb(246, 246, 246), rgb(225, 225, 225));
+		}
+	.btn.go {
+		background-color: #3dda38;
+		border: 1px solid #21ac1c;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, .4);
+    background-image: linear-gradient(top, rgb(61, 218, 56), rgb(39, 187, 63));
+}
+		.btn.go:active {
+			background-color: #3dda38;
+			background-image: linear-gradient(bottom, rgb(61, 218, 56), rgb(39, 187, 63));
+			}
+
