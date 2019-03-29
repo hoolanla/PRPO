@@ -42,7 +42,8 @@ namespace Model
         public string paper_type { get; set; }
         public int pr_flag { get; set; }
         public int po_flag { get; set; }
- 
+        public string supplier_name { get; set; }
+        public string suplier_id { get; set; }
        
 
 
