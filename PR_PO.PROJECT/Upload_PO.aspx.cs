@@ -27,7 +27,7 @@ namespace PR_PO.PROJECT
     public partial class Upload_PO : Page
     {
 
-        Model.Criteria.Document Doc = new Model.Criteria.Document();
+        Model.PO_Document Doc = new Model.PO_Document();
         string paper_type="L";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace PR_PO.PROJECT
 
             int pageCount = 1; 
             string ServerPath = Server.MapPath(".\\");
-            string pdfPath = Server.MapPath("~/Pdf/" + fileCurrentName + ".pdf");
+            string pdfPath = Server.MapPath("~/PO_Pdf/" + fileCurrentName + ".pdf");
 
             PdfSharp.Pdf.PdfDocument inputDocument = PdfReader.Open(pdfPath, PdfDocumentOpenMode.ReadOnly);
             int widthPage = 0;
@@ -102,13 +102,13 @@ namespace PR_PO.PROJECT
 
                     if (rasterizer.PageCount > 1)
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImage/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PO_PdfToImage/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
                     else
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImage/"), fileCurrentName + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PO_PdfToImage/"), fileCurrentName + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
@@ -118,16 +118,16 @@ namespace PR_PO.PROJECT
 
 
 
-            Model.Criteria.Document doc = new Model.Criteria.Document();
+            Model.PO_Document doc = new Model.PO_Document();
             doc.doc_id = fileCurrentName;
             doc.upload_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             doc.page_count = pageCount;
             doc.paper_type = paper_type;
 
-            BLL.Upload _BLL = new BLL.Upload();
+            BLL.PO _BLL = new BLL.PO();
 
-
-            _BLL.Update_upload_date(doc);
+            _BLL.Update_Upload_date(doc);
+          
            
     
             // Write LOG
@@ -135,7 +135,7 @@ namespace PR_PO.PROJECT
             Model.Log L = new Model.Log();
             Helper.Utility Log = new Helper.Utility();
 
-            L.content = "Convert PDF to Image success.";
+            L.content = "Convert PO_PDF to Image success.";
             L.create_by = Session["EMAIL"].ToString();
 
             Log.WriteLog(L);
@@ -151,7 +151,7 @@ namespace PR_PO.PROJECT
             
            if (FileUpload1.HasFile)
             {
-                string folderPath = Server.MapPath("~/Pdf/");
+                string folderPath = Server.MapPath("~/PO_Pdf/");
                 //Check whether Directory (Folder) exists.
 
 
@@ -171,8 +171,11 @@ namespace PR_PO.PROJECT
                     {
                         try
                         {
-                            ClsModule mdl = new ClsModule(); 
-                            Doc.doc_id = mdl.getRuningNoDoc();
+
+
+                           ClsModule mdl = new ClsModule(); 
+                            Doc.doc_id = Request.QueryString["doc_id"].ToString();
+                            Doc.pr_doc_id = Request.QueryString["doc_id"].ToString();
                             Doc.doc_name = fu.FileName;
                             Doc.create_by = Session["NAME"].ToString();
                             Doc.secure_prepare = Session["EMAIL"].ToString();
@@ -187,10 +190,10 @@ namespace PR_PO.PROJECT
                             // Insert DB
 
                             string ret ;
-                            BLL.Upload _BLL = new BLL.Upload();
+                            BLL.PO _BLL = new BLL.PO();
                             string temp;
 
-                            ret = _BLL.InsertDocument_step1(Doc);
+                            ret = _BLL.InsertDocument_po_step1(Doc);
 
           if(ret == "1")
           {
@@ -307,8 +310,8 @@ namespace PR_PO.PROJECT
                 string fileName = Path.GetFileName(uploadfile.FileName);
                 if (uploadfile.ContentLength > 0)
                 {
-                    uploadfile.SaveAs(Server.MapPath("~/AttachFiles/") + fileName);
-                    myCollection.Add(Server.MapPath("~/AttachFiles/") + fileName);
+                    uploadfile.SaveAs(Server.MapPath("~/PO_AttachFiles/") + fileName);
+                    myCollection.Add(Server.MapPath("~/PO_AttachFiles/") + fileName);
                     lblMessage.Text += fileName + "  Saved  Successfully<br>";
             
                 }
@@ -319,12 +322,12 @@ namespace PR_PO.PROJECT
 
             using (Ionic.Zip.ZipFile compress = new Ionic.Zip.ZipFile())
             {
-                string zipfilepath = Server.MapPath("~/AttachFiles/");
+                string zipfilepath = Server.MapPath("~/PO_AttachFiles/");
                 compress.AddFiles(myCollection.ToArray(), Doc.doc_id);
-                compress.Save(Server.MapPath("~/AttachFiles/") + Doc.doc_id + ".zip");
+                compress.Save(Server.MapPath("~/PO_AttachFiles/") + Doc.doc_id + ".zip");
             }
 
-Response.Redirect("DataDocument.aspx");
+Response.Redirect("PO_DataDocument.aspx");
 
 
             }

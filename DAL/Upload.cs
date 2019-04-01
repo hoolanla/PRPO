@@ -143,6 +143,62 @@ namespace DAL
 
         }
 
+
+        public List<Model.Account> getEmail_Level2()
+        {
+            //string connStr = Properties.Settings.Default.InventoryControl_ConnectionString;
+            //SqlConnection conn = Common.DataHelper.getSQLServerConnectionObject(connStr);
+            DataSet ds = new DataSet();
+            String sql;
+            sql = "Select * From account where level='2'";
+            Class.clsDB db = new Class.clsDB();
+            ds = db.ExecuteDataSet(sql);
+            db.Close();
+            //SqlDataAdapter adp = new SqlDataAdapter("usp_Permission_Read", conn);
+            //adp.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PRJ_Code", criteria.PRJ_Code));
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@UserAccount", criteria.UserAccount));
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PAG_Code", criteria.PAG_Code));
+            //  adp.Fill(ds);
+
+            return ds.Tables[0].AsEnumerable().Select(s => new Model.Account
+            {
+                Title = s.Field<string>("Title"),
+                Name = s.Field<string>("Name"),
+                Surname = s.Field<string>("Surname"),
+                Email = s.Field<string>("Email"),
+            }).ToList();
+
+        }
+
+
+        public List<Model.Account> getEmail_Level0()
+        {
+            //string connStr = Properties.Settings.Default.InventoryControl_ConnectionString;
+            //SqlConnection conn = Common.DataHelper.getSQLServerConnectionObject(connStr);
+            DataSet ds = new DataSet();
+            String sql;
+            sql = "Select * From account where level='0'";
+            Class.clsDB db = new Class.clsDB();
+            ds = db.ExecuteDataSet(sql);
+            db.Close();
+            //SqlDataAdapter adp = new SqlDataAdapter("usp_Permission_Read", conn);
+            //adp.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PRJ_Code", criteria.PRJ_Code));
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@UserAccount", criteria.UserAccount));
+            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PAG_Code", criteria.PAG_Code));
+            //  adp.Fill(ds);
+
+            return ds.Tables[0].AsEnumerable().Select(s => new Model.Account
+            {
+                Title = s.Field<string>("Title"),
+                Name = s.Field<string>("Name"),
+                Surname = s.Field<string>("Surname"),
+                Email = s.Field<string>("Email"),
+            }).ToList();
+
+        }
+
         public string InsertDocument_step1(Model.Criteria.Document criteria)
         {
 
@@ -174,32 +230,6 @@ namespace DAL
         }
 
 
-        public string InsertDocument_po_step1(Model.Criteria.Document criteria)
-        {
-
-            Class.clsDB db = new Class.clsDB();
-            string sql;
-            sql = "Insert into document(";
-            sql += "doc_id,";
-            sql += "doc_name,";
-            sql += "create_by,";
-            sql += "content,";
-            sql += "secure_prepare) Values(";
-            sql += "'" + criteria.doc_id + "',";
-            sql += "'" + criteria.doc_name + "',";
-            sql += "'" + criteria.create_by + "',";
-            sql += "'" + criteria.content + "',";
-
-            sql += "'" + criteria.secure_prepare + "')";
-
-
-
-            int ret;
-            ret = db.ExecuteNonQuery(sql);
-            db.Close();
-
-            return ret.ToString();
-        }
 
 
 
@@ -238,6 +268,22 @@ namespace DAL
 
         }
 
+        public int Update_sign_review_date(Model.Criteria.Document criteria)
+        {
+
+
+            string sql;
+            sql = "Update document SET sign_prepare_date = '" + criteria.sign_prepare_date + "',step3=1 ";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+
+        }
 
         public int Update_sign_approve_date(Model.Criteria.Document criteria)
         {

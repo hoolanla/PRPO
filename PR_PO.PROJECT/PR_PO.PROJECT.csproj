@@ -188,7 +188,12 @@
     <Content Include="bin\wkhtmltox.dll" />
     <Content Include="bin\wkhtmltox0.dll" />
     <Content Include="CSS\bootstrap_multiselect.css" />
-    <Content Include="PO.aspx" />
+    <Content Include="PO_FrmApplicationApprove.aspx" />
+    <Content Include="PO_FrmApplicationRequest.aspx" />
+    <Content Include="PO_FrmApplicationReview.aspx" />
+    <Content Include="FrmApplicationReview.aspx" />
+    <Content Include="FrmApplicationRequest.aspx" />
+    <Content Include="PO_DataDocument.aspx" />
     <Content Include="DataDocument2.aspx" />
     <Content Include="DataDocument.aspx" />
     <Content Include="FrmApplicationPrepare.aspx" />
@@ -348,13 +353,23 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\pageScript\ManageAccount.js" />
+    <Content Include="Scripts\pageScript\PO_SendMailApprove.js" />
     <Content Include="Scripts\pageScript\SendMailApprove.js" />
+    <Content Include="Scripts\pageScript\PO_SendMailRequest.js" />
+    <Content Include="Scripts\pageScript\PO_SendMailReview.js" />
+    <Content Include="Scripts\pageScript\SendMailReview.js" />
+    <Content Include="Scripts\pageScript\SendMailRequest.js" />
     <Content Include="Scripts\Script.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\spin.js" />
     <Content Include="Scripts\thickbox-compressed.js" />
     <Content Include="Scripts\thickbox.css" />
+    <Content Include="PO_SendMailRequest.aspx" />
+    <Content Include="PO_SendMailReview.aspx" />
+    <Content Include="PO_SendMailApprove.aspx" />
+    <Content Include="SendMailReview.aspx" />
+    <Content Include="SendMailRequest.aspx" />
     <Content Include="StyleSheet\bootstrap\css\bootstrap-datepicker.css" />
     <Content Include="StyleSheet\bootstrap\css\bootstrap-theme.css" />
     <Content Include="StyleSheet\bootstrap\css\bootstrap-theme.min.css" />
@@ -408,6 +423,7 @@
     <Content Include="testMail.aspx" />
     <Content Include="TestTagForm.aspx" />
     <Content Include="SendMailApprove.aspx" />
+    <Content Include="Upload_PO.aspx" />
     <Content Include="Upload.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
@@ -566,12 +582,47 @@
       <DependentUpon>Authorize.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class\ClsModule.cs" />
-    <Compile Include="PO.aspx.cs">
-      <DependentUpon>PO.aspx</DependentUpon>
+    <Compile Include="PO_FrmApplicationApprove.aspx.cs">
+      <DependentUpon>PO_FrmApplicationApprove.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PO.aspx.designer.cs">
-      <DependentUpon>PO.aspx</DependentUpon>
+    <Compile Include="PO_FrmApplicationApprove.aspx.designer.cs">
+      <DependentUpon>PO_FrmApplicationApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PO_FrmApplicationRequest.aspx.cs">
+      <DependentUpon>PO_FrmApplicationRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_FrmApplicationRequest.aspx.designer.cs">
+      <DependentUpon>PO_FrmApplicationRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PO_FrmApplicationReview.aspx.cs">
+      <DependentUpon>PO_FrmApplicationReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_FrmApplicationReview.aspx.designer.cs">
+      <DependentUpon>PO_FrmApplicationReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmApplicationReview.aspx.cs">
+      <DependentUpon>FrmApplicationReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmApplicationReview.aspx.designer.cs">
+      <DependentUpon>FrmApplicationReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmApplicationRequest.aspx.cs">
+      <DependentUpon>FrmApplicationRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmApplicationRequest.aspx.designer.cs">
+      <DependentUpon>FrmApplicationRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PO_DataDocument.aspx.cs">
+      <DependentUpon>PO_DataDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_DataDocument.aspx.designer.cs">
+      <DependentUpon>PO_DataDocument.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataDocument2.aspx.cs">
       <DependentUpon>DataDocument2.aspx</DependentUpon>
@@ -603,6 +654,41 @@
     </Compile>
     <Compile Include="Models\criteria\Upload.cs" />
     <Compile Include="Models\Upload.cs" />
+    <Compile Include="PO_SendMailRequest.aspx.cs">
+      <DependentUpon>PO_SendMailRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_SendMailRequest.aspx.designer.cs">
+      <DependentUpon>PO_SendMailRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PO_SendMailReview.aspx.cs">
+      <DependentUpon>PO_SendMailReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_SendMailReview.aspx.designer.cs">
+      <DependentUpon>PO_SendMailReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PO_SendMailApprove.aspx.cs">
+      <DependentUpon>PO_SendMailApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PO_SendMailApprove.aspx.designer.cs">
+      <DependentUpon>PO_SendMailApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendMailReview.aspx.cs">
+      <DependentUpon>SendMailReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMailReview.aspx.designer.cs">
+      <DependentUpon>SendMailReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendMailRequest.aspx.cs">
+      <DependentUpon>SendMailRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMailRequest.aspx.designer.cs">
+      <DependentUpon>SendMailRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestGhostScript.aspx.cs">
       <DependentUpon>TestGhostScript.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -637,6 +723,13 @@
     </Compile>
     <Compile Include="SendMailApprove.aspx.designer.cs">
       <DependentUpon>SendMailApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload_PO.aspx.cs">
+      <DependentUpon>Upload_PO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload_PO.aspx.designer.cs">
+      <DependentUpon>Upload_PO.aspx</DependentUpon>
     </Compile>
     <Compile Include="Upload.aspx.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
@@ -730,11 +823,22 @@
     <Folder Include="AttachFiles\" />
     <Folder Include="ImagesDoc\" />
     <Folder Include="PdfApprove\" />
-    <Folder Include="PdfPrepare\" />
+    <Folder Include="PdfRequest\" />
+    <Folder Include="PdfReview\" />
     <Folder Include="PdfToImageApprove\" />
-    <Folder Include="PdfToImagePrepare\" />
+    <Folder Include="PdfToImageRequest\" />
+    <Folder Include="PdfToImageReview\" />
     <Folder Include="PdfToImage\" />
     <Folder Include="Pdf\" />
+    <Folder Include="PO_AttachFiles\" />
+    <Folder Include="PO_PdfApprove\" />
+    <Folder Include="PO_PdfRequest\" />
+    <Folder Include="PO_PdfReview\" />
+    <Folder Include="PO_PdfToImageApprove\" />
+    <Folder Include="PO_PdfToImageRequest\" />
+    <Folder Include="PO_PdfToImageReview\" />
+    <Folder Include="PO_PdfToImage\" />
+    <Folder Include="PO_Pdf\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Upload" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="SendMailApprove.aspx.cs" Inherits="PR_PO.PROJECT.SendMailApprove"  EnableEventValidation="FALSE" %>
+﻿<%@ Page Title="Sendmail Approve" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="SendMailApprove.aspx.cs" Inherits="PR_PO.PROJECT.SendMailApprove"  EnableEventValidation="FALSE" %>
 
 
 
@@ -6,19 +6,36 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    
 
+        <asp:ScriptManager  runat="server">
+            <Scripts>
+              
+                <%--Framework Scripts--%>
+               <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+         </Scripts>
+        </asp:ScriptManager>
 
    
         <h2><%: Title %> </h2>
 
-<%--    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>--%>
-  <%--      <script src="jquery.multifile.js"></script>--%>
 
     <script src="Scripts/jquery.min.js"></script>
     
-<%--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
-
-     <%--   <script type="text/javascript" src="Scripts/jquery.min.js"></script>--%>
 
 <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
     rel="stylesheet" type="text/css" />

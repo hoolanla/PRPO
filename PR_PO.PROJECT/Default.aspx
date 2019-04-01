@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ONLINE DOCUMENT SYSTEM</h1>
+        <h1>E-Sign SYSTEM</h1>
        <%-- <p class="lead">Welcome. </p>--%>
     <%--    <p><a href="http://www.asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>--%>
     </div>

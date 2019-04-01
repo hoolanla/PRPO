@@ -294,12 +294,12 @@ text-align: center;
                 
                    %>
      
-              <div class="row vertical-center-row"  > <img  src="PdfToImage/<%=doc_id.Value%>_<%=i+1%>.PNG" height='<%=h%>' width='<%=w%>' onmousedown='return  getMouseXY(event);'/></div> 
+              <div class="row vertical-center-row"  > <img  src="PdfToImageRequest/<%=doc_id.Value%>_<%=i+1%>.PNG" height='<%=h%>' width='<%=w%>' onmousedown='return  getMouseXY(event);'/></div> 
           <%    }
              else
              {
                  %>
-                  <div class="row vertical-center-row"  > <img  src="PdfToImage/<%=doc_id.Value %>_<%=i+1%>.PNG" height='<%=h %>' width='<%=w%>'/></div> 
+                  <div class="row vertical-center-row"  > <img  src="PdfToImageRequest/<%=doc_id.Value %>_<%=i+1%>.PNG" height='<%=h %>' width='<%=w%>'/></div> 
           <%  }
 
             }
@@ -307,7 +307,7 @@ text-align: center;
          }
          else
          { %>
-             <div class="row vertical-center-row"><img  src="PdfToImage/<%=doc_id.Value %>.PNG"  height='<%=h %>' width='<%=w%>' onmousedown='return  getMouseXY(event);' id="log" /></div> 
+             <div class="row vertical-center-row"><img  src="PdfToImageRequest/<%=doc_id.Value %>.PNG"  height='<%=h %>' width='<%=w%>' onmousedown='return  getMouseXY(event);' id="log" /></div> 
        <%  }
            
           %>

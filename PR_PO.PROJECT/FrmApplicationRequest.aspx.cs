@@ -91,7 +91,7 @@ namespace PR_PO.PROJECT
             
             string currentFile = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/tmpFrmApplication.html";
             //string currentFile = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/testHtml.html";
-            var url = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/FrmApplicationPrepare.aspx?doc_id=" + doc_id.Value + "&signature=" + signature_file.Value + "&page_count=" + page_count.Value + "&paper_type=" + paper_type.Value;
+            var url = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/FrmApplicationRequest.aspx?doc_id=" + doc_id.Value + "&signature=" + signature_file.Value + "&page_count=" + page_count.Value + "&paper_type=" + paper_type.Value;
             var http = (HttpWebRequest)WebRequest.Create(url);
             var response = http.GetResponse();
 
@@ -142,7 +142,7 @@ namespace PR_PO.PROJECT
                 Model.Log L = new Model.Log();
                 Helper.Utility Log = new Helper.Utility();
 
-                L.content = "Sign prepare success.";
+                L.content = "Sign request success.";
                 L.create_by = Session["EMAIL"].ToString();
                 Log.WriteLog(L);
 
@@ -176,7 +176,7 @@ namespace PR_PO.PROJECT
             int desired_y_dpi = 300;
 
             string ServerPath = Server.MapPath(".\\");
-            string pdfPath = Server.MapPath(".\\") + "PdfPrepare/" + fileCurrentName + ".pdf";
+            string pdfPath = Server.MapPath(".\\") + "PdfRequest/" + fileCurrentName + ".pdf";
 
   
 
@@ -221,13 +221,13 @@ namespace PR_PO.PROJECT
 
                     if (int.Parse(pageCount) > 1)
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageApprove/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageRequest/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
                     else
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageApprove/"), fileCurrentName + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageRequest/"), fileCurrentName + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
@@ -263,7 +263,7 @@ namespace PR_PO.PROJECT
 
 
             //  string filename = ConfigurationManager.AppSettings["ExportFilePath"] + "\\" + outputFilename + ".pdf";
-            string filename = HttpContext.Current.Server.MapPath("./PdfPrepare/" + outputFilename + ".pdf");
+            string filename = HttpContext.Current.Server.MapPath("./PdfRequest/" + outputFilename + ".pdf");
 
 
 

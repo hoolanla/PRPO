@@ -27,10 +27,20 @@ namespace BLL
 
         public List<Model.Account> getEmail_Level1()
         {
-
-            //  _uplDAL.getEmail();
             return _uplDAL.getEmail_Level1();
         }
+
+
+        public List<Model.Account> getEmail_Level2()
+        {
+            return _uplDAL.getEmail_Level2();
+        }
+
+        public List<Model.Account> getEmail_Level0()
+        {
+            return _uplDAL.getEmail_Level0();
+        }
+
 
         public string InsertDocument_step1(Model.Criteria.Document criteria)
                    {
@@ -38,10 +48,7 @@ namespace BLL
         }
 
 
-        public string InsertDocument_po_step1(Model.Criteria.Document criteria)
-        {
-            return _uplDAL.InsertDocument_po_step1(criteria);
-        }
+      
 
 
         public int Delete_Document(Model.Criteria.Document criteria)
@@ -61,6 +68,11 @@ namespace BLL
             return _uplDAL.Update_sign_prepare_date(criteria);
         }
 
+
+                public int Update_sign_review_date(Model.Criteria.Document criteria)
+        {
+            return _uplDAL.Update_sign_review_date(criteria);
+        }
         public int Update_sign_approve_date(Model.Criteria.Document criteria)
         {
             return _uplDAL.Update_sign_approve_date(criteria);

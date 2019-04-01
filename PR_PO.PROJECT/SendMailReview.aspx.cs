@@ -179,7 +179,7 @@ namespace PR_PO.PROJECT
 
 
                    mailBody.AppendLine("<table>");
-                   mailBody.AppendLine("<tr><td>Please sign form applicaion <a href='ht" + "tp://" + serverName + "/ODS/FrmApplicationApprove.aspx?doc_id=" + Session["DOC_ID"].ToString() + "&email=" + tmpMail + "&page_count=" + page_count +"&paper_type=" + paper_type +"&signature=" + signature + "'>Click here.</a> </td></tr>");
+                   mailBody.AppendLine("<tr><td>Please sign form applicaion <a href='ht" + "tp://" + serverName + "/FrmApplicationReview.aspx?doc_id=" + Session["DOC_ID"].ToString() + "&email=" + tmpMail + "&page_count=" + page_count +"&paper_type=" + paper_type +"&signature=" + signature + "'>Click here.</a> </td></tr>");
                    mailBody.AppendLine("<tr><td><BR/></td></tr>");
                    mailBody.AppendLine("<tr><td><BR/>Best Regards,<td></tr>");
                    mailBody.AppendLine("<tr><td><BR/>" + mailForm + "</td></tr>");    

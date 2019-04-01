@@ -80,6 +80,9 @@ h1 {
                           <telerik:GridBoundColumn HeaderText="PR#" DataField="content" UniqueName="content" >
       </telerik:GridBoundColumn>
 
+                                <telerik:GridBoundColumn HeaderText="Supplier Name" DataField="supplier_name" UniqueName="supplier_name" >
+      </telerik:GridBoundColumn>
+
                   <telerik:GridBoundColumn HeaderText="Create by" DataField="create_by" UniqueName="create_by" Display="false">
       </telerik:GridBoundColumn>
 
@@ -108,24 +111,21 @@ h1 {
                              <telerik:GridBoundColumn HeaderText="Review By" DataField="secure_prepare" UniqueName="secure_prepare" >
       </telerik:GridBoundColumn>
 
-                  <telerik:GridTemplateColumn HeaderText="Sign prepare">
+                  <telerik:GridTemplateColumn HeaderText="Request">
         <ItemTemplate>
                   <asp:imagebutton  ID="step2" runat="server" CommandName="step2"  CommandArgument='<%# Eval("step2") %>' ></asp:imagebutton>
      </ItemTemplate>
        </telerik:GridTemplateColumn>
 
 
-                       <telerik:GridTemplateColumn HeaderText="Send mail" Display="false">
+                       <telerik:GridTemplateColumn HeaderText="Review">
         <ItemTemplate>
                   <asp:imagebutton  ID="step3" runat="server" CommandName="step3"  CommandArgument='<%# Eval("step3") %>' ></asp:imagebutton>
      </ItemTemplate>
        </telerik:GridTemplateColumn>
 
 
-                                 <telerik:GridBoundColumn HeaderText="Approve by" DataField="secure_approve" UniqueName="secure_approve" >
-      </telerik:GridBoundColumn>
-
-                       <telerik:GridTemplateColumn HeaderText="Result">
+        <telerik:GridTemplateColumn HeaderText="Approve">
         <ItemTemplate>
                   <asp:imagebutton  ID="step4" runat="server" CommandName="step4"  CommandArgument='<%# Eval("step4") %>' ></asp:imagebutton>
      </ItemTemplate>
@@ -134,10 +134,18 @@ h1 {
 
 
 
-            <telerik:GridTemplateColumn HeaderText="Approve view">
+                                 <telerik:GridBoundColumn HeaderText="Approve by" DataField="secure_approve" UniqueName="secure_approve" >
+      </telerik:GridBoundColumn>
+
+     
+
+
+
+
+            <telerik:GridTemplateColumn HeaderText="Complete">
         <ItemTemplate>
      <asp:ImageButton ID="ImagePDF" runat="server" CausesValidation="false" CommandName="" ImageUrl="~/Images/pdf.png" Height="20" Width="20" Text='<%# Eval("doc_id") %>' />
-                      <asp:LinkButton ID="PDF_APROVE" runat="server" CommandArgument='<%# Eval("doc_id") %>' CommandName="PDF_APPROVE">Download</asp:LinkButton>
+                      <asp:LinkButton ID="PDF_APPROVE" runat="server" CommandArgument='<%# Eval("doc_id") %>' CommandName="PDF_APPROVE">Download</asp:LinkButton>
      </ItemTemplate>
        </telerik:GridTemplateColumn>  
 

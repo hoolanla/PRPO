@@ -37,7 +37,8 @@ namespace PR_PO.PROJECT
         private void BindGrid()
         {
             Class.clsDB DB = new Class.clsDB();
-            string sql = "select doc_id,doc_name,content,create_by,create_date,secure_prepare,step1,step2,step3,step4,secure_approve,approve_problem From document order by doc_id desc";
+            string sql = "select doc_id,doc_name,content,create_by,create_date,secure_prepare,step1,step2,step3,step4,";
+            sql += "secure_approve,approve_problem,supplier_id,supplier_name From document order by doc_id desc";
             DataTable dt;
             dt = DB.ExecuteDataTable(sql);
             DB.Close();
@@ -168,55 +169,55 @@ namespace PR_PO.PROJECT
         protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
-            if (e.CommandName == "step2")
-            {
+            //if (e.CommandName == "step2")
+            //{
 
-                DataTable _dt;
-                _dt = (DataTable)Session["DT"];
-                int index = Convert.ToInt32(e.CommandArgument);
-                GridViewRow selectedRow = grid.Rows[index];
+            //    DataTable _dt;
+            //    _dt = (DataTable)Session["DT"];
+            //    int index = Convert.ToInt32(e.CommandArgument);
+            //    GridViewRow selectedRow = grid.Rows[index];
 
-                if(selectedRow.Cells[4].Text != Session["EMAIL"].ToString())
-                {
-                    Model.Log L = new Model.Log();
-                    Helper.Utility Log = new Helper.Utility();
-                    L.content = "[Access denied!] Go to FrmApplicationPrepare.";
-                    L.create_by = Session["EMAIL"].ToString();
-                    Log.WriteLog(L);
+            //    if(selectedRow.Cells[4].Text != Session["EMAIL"].ToString())
+            //    {
+            //        Model.Log L = new Model.Log();
+            //        Helper.Utility Log = new Helper.Utility();
+            //        L.content = "[Access denied!] Go to FrmApplicationRequest.";
+            //        L.create_by = Session["EMAIL"].ToString();
+            //        Log.WriteLog(L);
 
-                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ Sign prepare.');</script>");
+            //        Response.Write("<script>alert('คุณไม่มีสิทธิ์ Sign prepare.');</script>");
 
-                }
+            //    }
 
-                else if (_dt.Rows[index]["step2"].ToString() == "1")
-                {
+            //    else if (_dt.Rows[index]["step2"].ToString() == "1")
+            //    {
 
-                    Response.Write("<script>alert('คุณไม่สามารถ Sign prepare ได้เนื่องจาก Sign ไปแล้ว');</script>");
-                }
+            //        Response.Write("<script>alert('คุณไม่สามารถ Sign prepare ได้เนื่องจาก Sign ไปแล้ว');</script>");
+            //    }
 
-                else
-                {
+            //    else
+            //    {
 
 
-                    string page_count="";
-                    string doc_id;
-                    string signature;
-                    string paper_type;
+            //        string page_count="";
+            //        string doc_id;
+            //        string signature;
+            //        string paper_type;
 
-                    BLL.Upload _BLL = new BLL.Upload();
+            //        BLL.Upload _BLL = new BLL.Upload();
                   
-                    doc_id = selectedRow.Cells[0].Text;
-                    page_count = _BLL.get_Pagecount(doc_id);
-                    paper_type = _BLL.Get_Paper_type(doc_id);
-                    signature = Session["SIGNATURE"].ToString();
-                    Model.Log L = new Model.Log();
-                    Helper.Utility Log = new Helper.Utility();
-                    L.content = "Go to FrmApplicationPrepare.";
-                    L.create_by = Session["EMAIL"].ToString();
-                    Log.WriteLog(L);
-                    Response.Redirect("FrmApplicationPrepare.aspx?doc_id=" + doc_id + "&signature=" + signature + "&page_count=" + page_count + "&paper_type=" + paper_type);
-                }
-            }
+            //        doc_id = selectedRow.Cells[0].Text;
+            //        page_count = _BLL.get_Pagecount(doc_id);
+            //        paper_type = _BLL.Get_Paper_type(doc_id);
+            //        signature = Session["SIGNATURE"].ToString();
+            //        Model.Log L = new Model.Log();
+            //        Helper.Utility Log = new Helper.Utility();
+            //        L.content = "Go to FrmApplicationPrepare.";
+            //        L.create_by = Session["EMAIL"].ToString();
+            //        Log.WriteLog(L);
+            //        Response.Redirect("FrmApplicationPrepare.aspx?doc_id=" + doc_id + "&signature=" + signature + "&page_count=" + page_count + "&paper_type=" + paper_type);
+            //    }
+            //}
 
             // APPROVE CHECK SECURE_APPROVE
             if (e.CommandName == "step4")
@@ -360,7 +361,60 @@ namespace PR_PO.PROJECT
                 }
             }
 
-            
+
+
+
+
+            if (e.CommandName == "step2")
+            {
+
+                DataTable _dt;
+                _dt = (DataTable)Session["DT"];
+                int idx = Convert.ToInt32(e.CommandArgument);
+                GridViewRow Row = grid.Rows[idx];
+
+                if (Row.Cells[4].Text != Session["EMAIL"].ToString())
+                {
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "[Access denied!] Go to sendMailRequest.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Request.');</script>");
+                }
+
+
+
+                else if (_dt.Rows[idx]["step2"].ToString() == "1")
+                {
+
+                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
+                }
+
+
+                else
+                {
+                    string doc_id;
+                    string email;
+                    string content;
+
+                    doc_id = Row.Cells[0].Text;
+                    email = Session["EMAIL"].ToString();
+                    content = Row.Cells[2].Text;
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "Go to SendMailRequest.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    Response.Redirect("SendMailRequest.aspx?doc_id=" + doc_id + "&email=" + email + "&content=" + content);
+                }
+            }
+
+
+
+
 
 
             if (e.CommandName == "step3")
@@ -381,17 +435,72 @@ namespace PR_PO.PROJECT
                     L.create_by = Session["EMAIL"].ToString();
                     Log.WriteLog(L);
 
-                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Approve.');</script>");
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Review.');</script>");
                 }
 
                     
-                else if (_dt.Rows[idx]["step2"].ToString() == "0")
+                else if (_dt.Rows[idx]["step3"].ToString() == "0")
                 {
 
-                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากเอกสารยังไม่ได้ Sign prepare.');</script>");
+                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากเอกสารยังไม่ได้ Sign Request.');</script>");
                 }
 
                 else if (_dt.Rows[idx]["step3"].ToString() == "1")
+                {
+
+                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
+                }
+
+
+                else
+                {
+                    string doc_id;
+                    string email;
+                    string content;
+
+                    doc_id = Row.Cells[0].Text;
+                    email = Session["EMAIL"].ToString();
+                    content = Row.Cells[2].Text;
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "Go to SendMailReview.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    Response.Redirect("SendMailReview.aspx?doc_id=" + doc_id + "&email=" + email + "&content=" + content);
+                }
+            }
+
+
+
+
+            if (e.CommandName == "step4")
+            {
+
+                DataTable _dt;
+                _dt = (DataTable)Session["DT"];
+                int idx = Convert.ToInt32(e.CommandArgument);
+                GridViewRow Row = grid.Rows[idx];
+
+                if (Row.Cells[4].Text != Session["EMAIL"].ToString())
+                {
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "[Access denied!] Go to sendMailApprove.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Approve.');</script>");
+                }
+
+
+                else if (_dt.Rows[idx]["step3"].ToString() == "0")
+                {
+
+                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากเอกสารยังไม่ได้ Sign review.');</script>");
+                }
+
+                else if (_dt.Rows[idx]["step4"].ToString() == "1")
                 {
 
                     Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
@@ -519,7 +628,7 @@ namespace PR_PO.PROJECT
 
 
                 LinkButton PRE_PARE2 = item.FindControl("PDF_PREPARE2") as LinkButton;
-                if(PRE_PARE2 != null)
+                if (PRE_PARE2 != null)
                 {
                     mgr1.RegisterPostBackControl(PRE_PARE2);
                 }
@@ -529,6 +638,40 @@ namespace PR_PO.PROJECT
                 {
                     mgr1.RegisterPostBackControl(OPEN_PO);
                 }
+
+                LinkButton lnkDownload = item.FindControl("linkDownload") as LinkButton;
+                if (lnkDownload != null)
+                {
+                    mgr1.RegisterPostBackControl(lnkDownload);
+                }
+
+                LinkButton step2 = item.FindControl("step2") as LinkButton;
+                if (step2 != null)
+                {
+                    mgr1.RegisterPostBackControl(step2);
+                }
+
+                LinkButton step3 = item.FindControl("step3") as LinkButton;
+                if (step3 != null)
+                {
+                    mgr1.RegisterPostBackControl(step3);
+
+                }
+
+                LinkButton step4 = item.FindControl("step4") as LinkButton;
+                if (step4 != null)
+                {
+                    mgr1.RegisterPostBackControl(step4);
+                }
+
+                LinkButton PDF_APPROVE = item.FindControl("PDF_APPROVE") as LinkButton;
+                if (PDF_APPROVE != null)
+                {
+                    mgr1.RegisterPostBackControl(PDF_APPROVE);
+                }
+
+
+
 
 
                 ImageButton myImageButton2 = item.FindControl("step2") as ImageButton;
@@ -595,6 +738,14 @@ namespace PR_PO.PROJECT
         protected void RadGrid1_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
 
+            GridDataItem dataItem = null;
+            if (e.Item is GridDataItem)
+            {
+                dataItem = e.Item as GridDataItem;
+
+                int selectedRowIndex = dataItem.RowIndex;
+
+            } 
 
 
 
@@ -603,8 +754,6 @@ namespace PR_PO.PROJECT
 
 
             {
-
-        
 
                 string filename = e.CommandArgument.ToString();
                 if (filename != "")
@@ -666,22 +815,23 @@ namespace PR_PO.PROJECT
 
 
 
-            if (e.CommandName == "step2")
+
+            if (e.CommandName == "step22")
             {
-                   GridDataItem dataItem =null;
+//GridDataItem dataItem =null;
                 DataTable _dt;
                 _dt = (DataTable)Session["DT"];
                 int index = Convert.ToInt32(e.CommandArgument);
 
-                if (e.Item is GridDataItem)
-                {
-                dataItem  = e.Item as GridDataItem;
+                ////if (e.Item is GridDataItem)
+                ////{
+                ////dataItem  = e.Item as GridDataItem;
 
-                    int selectedRowIndex = dataItem.RowIndex;
+                ////    int selectedRowIndex = dataItem.RowIndex;
 
-                }
+                ////}
 
-            //    GridViewRow selectedRow = grid.Rows[index];
+        
 
 
                 if (dataItem.Cells[4].Text != Session["EMAIL"].ToString())
@@ -722,7 +872,174 @@ namespace PR_PO.PROJECT
                     L.content = "Go to FrmApplicationPrepare.";
                     L.create_by = Session["EMAIL"].ToString();
                     Log.WriteLog(L);
-                    Response.Redirect("FrmApplicationPrepare.aspx?doc_id=" + doc_id + "&signature=" + signature + "&page_count=" + page_count + "&paper_type=" + paper_type);
+                    Response.Redirect("FrmApplicationRequest.aspx?doc_id=" + doc_id + "&signature=" + signature + "&page_count=" + page_count + "&paper_type=" + paper_type);
+                }
+            }
+
+
+
+
+            if (e.CommandName == "step2")
+            {
+
+                
+               
+                int idx = Convert.ToInt32(e.CommandArgument);
+              
+
+                if ( Session["LEVEL"].ToString() != "2")
+                {
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "[Access denied!] Go to sendMailRequest.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Request.');</script>");
+                }
+
+
+
+                else if (e.CommandArgument.ToString() == "1")
+                {
+
+                    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
+                }
+
+
+                else
+                {
+                    string doc_id;
+                    string email;
+                    string content;
+
+                    doc_id = dataItem.Cells[2].Text;
+                    email = Session["EMAIL"].ToString();
+                    content = dataItem.Cells[4].Text;
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "Go to SendMailRequest.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    Response.Redirect("SendMailRequest.aspx?doc_id=" + doc_id + "&email=" + email + "&content=" + content);
+                }
+            }
+
+
+            if (e.CommandName == "step3")
+            {
+
+                int idx = Convert.ToInt32(e.CommandArgument);
+                if (Session["LEVEL"].ToString() != "2")
+                {
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "[Access denied!] Go to sendMailReview.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Review.');</script>");
+                }
+
+                //else if (  e.CommandArgument.ToString() == "1")
+                //{
+                //    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
+                //}
+
+                else
+                {
+                    string doc_id;
+                    string email;
+                    string content;
+
+                    doc_id = dataItem.Cells[2].Text;
+                    email = Session["EMAIL"].ToString();
+                    content = dataItem.Cells[4].Text;
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "Go to SendMailReview.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    Response.Redirect("SendMailReview.aspx?doc_id=" + doc_id + "&email=" + email + "&content=" + content);
+                }
+            }
+
+            if (e.CommandName == "step4")
+            {
+
+                int idx = Convert.ToInt32(e.CommandArgument);
+                if (Session["LEVEL"].ToString() != "2")
+                {
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "[Access denied!] Go to sendMailReview.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+
+                    Response.Write("<script>alert('คุณไม่มีสิทธิ์ส่งเมล์เพื่อ Review.');</script>");
+                }
+
+                //else if (  e.CommandArgument.ToString() == "1")
+                //{
+                //    Response.Write("<script>alert('คุณไม่สามารถส่งเมล์ได้เนื่องจากส่งไปแล้ว');</script>");
+                //}
+
+                else
+                {
+                    string doc_id;
+                    string email;
+                    string content;
+
+                    doc_id = dataItem.Cells[2].Text;
+                    email = Session["EMAIL"].ToString();
+                    content = dataItem.Cells[4].Text;
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+                    L.content = "Go to SendMailApprove.aspx.";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    Response.Redirect("SendMailApprove.aspx?doc_id=" + doc_id + "&email=" + email + "&content=" + content);
+                }
+            }
+
+
+
+
+
+
+            if (e.CommandName == "PDF_APPROVE")
+            {
+
+                string filename = e.CommandArgument.ToString();
+                if (filename != "")
+                {
+
+                    Model.Log L = new Model.Log();
+                    Helper.Utility Log = new Helper.Utility();
+
+                    L.content = "View PR Complete  " + filename + ".pdf";
+                    L.create_by = Session["EMAIL"].ToString();
+                    Log.WriteLog(L);
+                    string path = MapPath("PdfApprove/" + filename + ".pdf");
+
+                    //if (!File.Exists(path))
+                    //{
+                    //    Response.Write("<script>alert('ไฟล์นี้ยังไม่ได้ถูก Sign prepare.');</script>");
+                    //    return;
+                    //}
+
+                    byte[] bts = System.IO.File.ReadAllBytes(path);
+                    Response.Clear();
+                    Response.ClearHeaders();
+                    Response.AddHeader("Content-Type", "Application/octet-stream");
+                    Response.AddHeader("Content-Length", bts.Length.ToString());
+                    Response.AddHeader("Content-Disposition", "attachment;   filename=" + filename + ".pdf");
+                    Response.BinaryWrite(bts);
+                    Response.Flush();
+                    Response.End();
                 }
             }
 
@@ -732,7 +1049,7 @@ namespace PR_PO.PROJECT
                 string filename = e.CommandArgument.ToString();
                 if (filename != "")
                 {
-                    Response.Redirect("Upload.aspx?doc_id=" + filename);
+                    Response.Redirect("Upload_PO.aspx?doc_id=" + filename + "&content=" + dataItem.Cells[4].Text);
 
                 }
             }

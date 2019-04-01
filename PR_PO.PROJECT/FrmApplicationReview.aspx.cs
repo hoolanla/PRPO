@@ -54,8 +54,6 @@ namespace PR_PO.PROJECT
             else
             {
 
-              
-
 
                 String DL = dLeft.Value.Replace("'","");
                 String DT = dTop.Value.Replace("'","");
@@ -77,9 +75,6 @@ namespace PR_PO.PROJECT
 
         //   testPostback();
 
-        
-         
-
 
         }
 
@@ -91,7 +86,7 @@ namespace PR_PO.PROJECT
             
             string currentFile = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/tmpFrmApplication.html";
             //string currentFile = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/testHtml.html";
-            var url = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/FrmApplicationPrepare.aspx?doc_id=" + doc_id.Value + "&signature=" + signature_file.Value + "&page_count=" + page_count.Value + "&paper_type=" + paper_type.Value;
+            var url = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "/FrmApplicationReview.aspx?doc_id=" + doc_id.Value + "&signature=" + signature_file.Value + "&page_count=" + page_count.Value + "&paper_type=" + paper_type.Value;
             var http = (HttpWebRequest)WebRequest.Create(url);
             var response = http.GetResponse();
 
@@ -135,14 +130,10 @@ namespace PR_PO.PROJECT
 
 
 
-           
-
-
-
                 Model.Log L = new Model.Log();
                 Helper.Utility Log = new Helper.Utility();
 
-                L.content = "Sign prepare success.";
+                L.content = "Sign review success.";
                 L.create_by = Session["EMAIL"].ToString();
                 Log.WriteLog(L);
 
@@ -151,7 +142,7 @@ namespace PR_PO.PROJECT
 
                 _Doc.sign_prepare_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 _Doc.doc_id = doc_id.Value;
-                _BLL.Update_sign_prepare_date(_Doc);
+                _BLL.Update_sign_review_date(_Doc);
 
 
                 PdfToImage("", _Doc.doc_id);
@@ -176,40 +167,12 @@ namespace PR_PO.PROJECT
             int desired_y_dpi = 300;
 
             string ServerPath = Server.MapPath(".\\");
-            string pdfPath = Server.MapPath(".\\") + "PdfPrepare/" + fileCurrentName + ".pdf";
-
-  
-
-
+            string pdfPath = Server.MapPath(".\\") + "PdfReview/" + fileCurrentName + ".pdf";
 
 
             string pageCount;
             BLL.Upload _BLL = new BLL.Upload();
             pageCount = _BLL.get_Pagecount(Session["DOC_ID"].ToString());
-
-
-
-
-            //for (int i = 0; i < int.Parse(pageCount); i++)
-            //{
-
-
-
-
-
-        
-
-            //    if (int.Parse(pageCount) > 1)
-            //    {
-            //        zoomImg.Save(@ServerPath + "/PdfToImageApprove/" + fileCurrentName + "_" + (i + 1) + ".PNG");
-             
-            //    }
-            //    else
-            //    {
-            //        zoomImg.Save(@ServerPath + "/PdfToImageApprove/" + fileCurrentName + ".PNG");
-     
-            //    }
-            //}
 
 
             using (var rasterizer = new GhostscriptRasterizer())
@@ -221,29 +184,20 @@ namespace PR_PO.PROJECT
 
                     if (int.Parse(pageCount) > 1)
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageApprove/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageReview/"), fileCurrentName + "_" + (pageNumber) + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
                     else
                     {
-                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageApprove/"), fileCurrentName + ".PNG");
+                        var pageFilePath = Path.Combine(Server.MapPath("~/PdfToImageReview/"), fileCurrentName + ".PNG");
                         var img = rasterizer.GetPage(desired_x_dpi, desired_y_dpi, pageNumber);
                         img.Save(pageFilePath);
                     }
                 }
             }
 
-            //Model.Criteria.Document doc = new Model.Criteria.Document();
-            //doc.doc_id = fileCurrentName;
-            //doc.upload_date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-
-            //BLL.Upload _BLL = new BLL.Upload();
-            //int ret;
-            //ret = _BLL.Update_upload_date(doc);
-
-
-            // Write LOG
+         
 
             Model.Log L = new Model.Log();
             Helper.Utility Log = new Helper.Utility();
@@ -263,7 +217,7 @@ namespace PR_PO.PROJECT
 
 
             //  string filename = ConfigurationManager.AppSettings["ExportFilePath"] + "\\" + outputFilename + ".pdf";
-            string filename = HttpContext.Current.Server.MapPath("./PdfPrepare/" + outputFilename + ".pdf");
+            string filename = HttpContext.Current.Server.MapPath("./PdfReview/" + outputFilename + ".pdf");
 
 
 
