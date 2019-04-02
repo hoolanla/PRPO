@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Upload" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="PR_PO.PROJECT.Upload"  EnableEventValidation="FALSE" %>
+﻿<%@ Page Title="Upload PR" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="PR_PO.PROJECT.Upload"  EnableEventValidation="FALSE" %>
 
 
 
@@ -10,67 +10,37 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">  
 
-
+        <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+        <script src="jquery.multifile.js"></script>
 
         <telerik:RadScriptManager ID="mgr1" runat="server"></telerik:RadScriptManager>
             <telerik:RadAjaxManager ID="ajxMgr" runat="server"></telerik:RadAjaxManager>
 
 
+    <br />
+    <br />
 
-    <h2><%: Title %>
-     
-        </h2>
+
+ <div class="panel panel-default">
+    <div class="panel-body"><h2>Upload PR</h2></div>
+  </div>
 
    
-
-
-    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
-        <script src="jquery.multifile.js"></script>
-
-
-<br />
-    <br />   
-
-    <div class="custom-control custom-radio">
-           <asp:RadioButton  class="custom-control-input"  id="PR_Check" GroupName="radio1" runat="server" Checked="true" />
-  <label class="custom-control-label" for="PR_Check">PR</label>
-</div>
-
-    <div class="custom-control custom-radio">
-           <asp:RadioButton  class="custom-control-input" id="PO_Check" runat="server" GroupName ="radio1"/>
-  <label class="custom-control-label" for="PO_Check">PO</label>
-</div>
-
-        <br />
+            <br />
     <hr />
     <br />
 
+
     <div class="form-group">
 
-                    <label class="white col-sm-3 control-label " id="lblCC">Content :</label>
-                    <div class="col-sm-9">
-                        <div class="row">
-                            <div class="col-md-4 gap-text">
-                              <%--  <select class="form-control ft20" id="dlemailCC" tabindex ="2" name="dlemailCC" multiple="multiple">     
-                                      <option value="THAILAND" selected ="selected"></option>
-                      
-                                </select>--%>
-
-                           <asp:TextBox runat="server" ID="Content" CssClass="form-control" OnTextChanged="Content_TextChanged" />
+                    <label for="Content">PR# :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label><asp:TextBox runat="server" ID="Content" OnTextChanged="Content_TextChanged" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Content"
-                                CssClass="text-danger" ErrorMessage="The content field is required." />
-
-                            </div>
-             
-                        </div>
-                    </div>
+                                CssClass="text-danger" ErrorMessage="The content field is required." />               
                 </div> 
-
-
 
     
     <div class="form-group">
-  <label for="ddlCustomer">Customer:</label><telerik:RadComboBox ID="ddlCustomer" Runat="server"   EnableLoadOnDemand="true" DataTextField="cust_name" DataValueField="cust_id" ItemsPerRequest="10" EnableVirtualScrolling="true" Width="300px" AutoPostBack="False">
+  <label for="ddlCustomer">Supplier :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp       </label><telerik:RadComboBox ID="ddlCustomer" Runat="server"   EnableLoadOnDemand="true" DataTextField="cust_name" DataValueField="cust_id" ItemsPerRequest="10" EnableVirtualScrolling="true" Width="300px" AutoPostBack="False">
         </telerik:RadComboBox>
 <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCustomer"
           CssClass="text-danger" ErrorMessage="Please select one item." />
@@ -78,7 +48,6 @@
 <%--             <telerik:RadButton RenderMode="Lightweight" runat="server" ID="Button1" Text="Submit" OnClick="Button1_Click" CssClass="submit" data-toggle="collapse" data-target="#demo"  />--%>
 
 </div>
-
 
 
 

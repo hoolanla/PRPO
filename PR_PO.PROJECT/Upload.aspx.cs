@@ -48,7 +48,7 @@ namespace PR_PO.PROJECT
             if (Request.QueryString["doc_id"] != null)
             {
                 Session["DOC_DI"] = Request.QueryString["doc_id"];
-               PO_Check.Checked = true;
+        
             }
 
 
@@ -317,6 +317,13 @@ initCombo();
                     myCollection.Add(Server.MapPath("~/AttachFiles/") + fileName);
                     lblMessage.Text += fileName + "  Saved  Successfully<br>";
             
+                } 
+
+                else  // Update AttachFile 1 = 0
+                {
+
+                    BLL.Upload _BLL = new BLL.Upload();
+                    _BLL.Update_AttachFile(Doc);
                 }
             }
 

@@ -18,7 +18,10 @@ namespace BLL
             return _uplDAL.getEmail();
         }
 
-
+                public int Update_AttachFile(Model.Criteria.Document criteria)
+        {
+            return _uplDAL.Update_AttachFile(criteria);
+        }
 
         public List<Model.Document> getAll_Document(Model.Criteria.Document criteria)
         {

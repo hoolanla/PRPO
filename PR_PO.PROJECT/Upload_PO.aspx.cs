@@ -314,6 +314,12 @@ namespace PR_PO.PROJECT
                     myCollection.Add(Server.MapPath("~/PO_AttachFiles/") + fileName);
                     lblMessage.Text += fileName + "  Saved  Successfully<br>";
             
+                } 
+
+                else
+                {
+                    BLL.PO _BLL = new BLL.PO();
+                    _BLL.Update_AttachFile(Doc);
                 }
             }
 

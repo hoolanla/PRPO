@@ -268,6 +268,23 @@ namespace DAL
 
         }
 
+        public int Update_AttachFile(Model.Criteria.Document criteria)
+        {
+
+
+            string sql;
+            sql = "Update document SET attach_file_name = 0";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+
+        }
+
         public int Update_sign_review_date(Model.Criteria.Document criteria)
         {
 

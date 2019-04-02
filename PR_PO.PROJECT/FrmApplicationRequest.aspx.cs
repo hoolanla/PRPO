@@ -26,7 +26,6 @@ namespace PR_PO.PROJECT
             if (!Page.IsPostBack)
             {
 
-
                 if (Request.QueryString["doc_id"] != null)
                 {
                     doc_id.Value = Request.QueryString["doc_id"].ToString();
@@ -50,6 +49,7 @@ namespace PR_PO.PROJECT
                     paper_type.Value = Request.QueryString["paper_type"].ToString();
                     Session["PAPER_TYPE"] = Request.QueryString["paper_type"].ToString();
                 }
+                
             }
             else
             {

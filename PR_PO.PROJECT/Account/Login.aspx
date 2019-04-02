@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in to ODS system." Language="C#" MasterPageFile="~/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PR_PO.PROJECT.Account.Login" Async="true" %>
+﻿<%@ Page Title="Login to E-Sign system." Language="C#" MasterPageFile="~/MasterPage/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PR_PO.PROJECT.Account.Login" Async="true" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Upload" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="Upload_PO.aspx.cs" Inherits="PR_PO.PROJECT.Upload_PO"  EnableEventValidation="FALSE" %>
+﻿<%@ Page Title="Upload PO" Language="C#" MasterPageFile="~/Masterpage/Site.Master" AutoEventWireup="true" CodeBehind="Upload_PO.aspx.cs" Inherits="PR_PO.PROJECT.Upload_PO"  EnableEventValidation="FALSE" %>
 
 
 
@@ -11,25 +11,27 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">  
 
 
+    
+
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+        <script src="jquery.multifile.js"></script>
+
+
 
         <telerik:RadScriptManager ID="mgr1" runat="server"></telerik:RadScriptManager>
             <telerik:RadAjaxManager ID="ajxMgr" runat="server"></telerik:RadAjaxManager>
 
 
 
-    <h2><%: Title %>
-     
-        </h2>
-
-   
 
 
-    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
-        <script src="jquery.multifile.js"></script>
+    <br />
+    <br />
 
 
-<br />
-    <br />   
+ <div class="panel panel-default">
+    <div class="panel-body"><h2>Upload PO</h2></div>
+  </div>
 
 
 

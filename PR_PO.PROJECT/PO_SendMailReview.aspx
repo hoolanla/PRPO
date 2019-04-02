@@ -30,11 +30,16 @@
          </Scripts>
         </asp:ScriptManager>
 
+    <br />
+    <br />
+      <div class="panel panel-default">
+    <div class="panel-body"><h2>PO: Sendmail Review</h2></div>
+  </div>
+
    
-        <h2><%: Title %> </h2>
-
-
-
+            <br />
+    <hr />
+    <br />
     <script src="Scripts/jquery.min.js"></script>
     
 

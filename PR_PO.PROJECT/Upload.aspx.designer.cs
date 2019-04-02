@@ -31,24 +31,6 @@ namespace PR_PO.PROJECT {
         protected global::Telerik.Web.UI.RadAjaxManager ajxMgr;
         
         /// <summary>
-        /// PR_Check control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton PR_Check;
-        
-        /// <summary>
-        /// PO_Check control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton PO_Check;
-        
-        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>

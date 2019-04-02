@@ -95,7 +95,22 @@ namespace DAL
 
         }
 
+        public int Update_AttachFile(Model.PO_Document criteria)
+        {
 
+
+            string sql;
+            sql = "Update po_document SET attach_file_name = 0";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+
+        }
 
         public string Get_PageCount(string doc_id)
         {

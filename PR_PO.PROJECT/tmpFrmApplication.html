@@ -11,9 +11,16 @@
      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-    <form method="post" action="./PO_FrmApplicationApprove.aspx?doc_id=2019040101&amp;signature=monyaphat.png&amp;page_count=2&amp;paper_type=L&amp;top=%271447px%27&amp;left=%27431px%27" id="form1">
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="ERX9subm767wjceYdZBPHw2iVXl31saJ2KArVhl6kTPsuq9SFamovs773gAZ2r0/RCZ2JPYcvw3cFdDfsrfo/gIo7gXbUdzPcvHejrEaT08=" />
 
+
+
+
+     
+    <form method="post" action="./FrmApplicationRequest.aspx?doc_id=2019040204&amp;signature=monyaphat.png&amp;page_count=3&amp;paper_type=L" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="GnimOxhnXVLzzR9HrPbkKs6oGMBYE2Xi3hJjKAiTKxgP2oDpTXY+/tcfwpyJj4vziHCr2xfURy8LhcJuzFTPUIsFJ4dfLh71BnC8SBgjq64=" />
+
+
+  
     <div>
     
 
@@ -38,11 +45,12 @@
                        d.style.top = e.pageY - 0 + 'px';
 
                        var paperType = document.getElementById('paper_type').value;
-
-            
+                
                        var sizeScr = screen.width + 'x' + screen.height;
                        var l = e.pageX ;
                        var t = e.pageY ;
+                       
+
 
 
                        if (paperType == "P") {
@@ -169,8 +177,9 @@
                            }
 
                        }
-                    
 
+              
+                  
                        var dL = document.getElementById('dLeft');
                        var dT = document.getElementById('dTop');
                        //dL.value="'" + d.style.left - 428 + "'";
@@ -195,13 +204,13 @@ p.sansserif {
         color: #333;
         width: 137px;
         position:absolute;
-        top:1447px;
-        left:431px;
+        top:2207px;
+        left:599px;
     }
 
      /*img {
       width: 100%;
-      height: auto;
+      height: 300px;
    }*/
 
     p.form-pdf-checkbox {
@@ -248,44 +257,55 @@ text-align: center;
 
 </style>
 
-<div  id="signature1" ><p id="signature" class="form-pdf"><img src="Images/monyaphat.png" width ="120" height="30" /></p></div>
+    
+
+   
+<div  id="signature1" ><p id="signature" class="form-pdf"><img src="Images/monyaphat.png" width ="120" height="30"  /></p>
+
+        </div>
  <div class="container container-table" style="background-color: #ffffff" >
 
+     
+                  <div class="row vertical-center-row"  > <img  src="PdfToImage/2019040204_1.PNG" height='790' width='1120'/></div> 
+          
+                  <div class="row vertical-center-row"  > <img  src="PdfToImage/2019040204_2.PNG" height='790' width='1120'/></div> 
+          
+     
+              <div class="row vertical-center-row"  > <img  src="PdfToImage/2019040204_3.PNG" height='790' width='1120' onmousedown='return  getMouseXY(event);'/></div> 
+          
 
-     
-                  <div class="row vertical-center-row"  > <img  src="PO_PdfToImageReview/2019040101_1.PNG" height='790' width='1120'/></div> 
-          
-     
-              <div class="row vertical-center-row"  > <img  src="PO_PdfToImageReview/2019040101_2.PNG" height='790' width='1120' onmousedown='return  getMouseXY(event);'/></div> 
-          
+
 
 
 
 
 </div>
-  <div class="row vertical-center-row">
-      <div class="text-center col-md-1 col-md-offset-1" >
-                  
- </div>
-       </div>
 
-   </div>
-        <input type="hidden" name="dLeft" id="dLeft" />
+
+        
+             <input type="hidden" name="dLeft" id="dLeft" />
         <input type="hidden" name="dTop" id="dTop" />
-        <input type="hidden" name="doc_id" id="doc_id" value="2019040101" />
-        <input type="hidden" name="signature_file" id="signature_file" value="monyaphat.png" />
-        <input type="hidden" name="email" id="email" />
-        <input type="hidden" name="page_count" id="page_count" value="2" />
-        <input type="hidden" name="paper_type" id="paper_type" value="L" />
-    
-<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="88BDA6A1" />
-<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="fnyxxWRYGJPghzTWYlMKwjlo/cv4OXy4IVPJ1ah5km6XryxbTXiS//u3NCjHD9xxP4NuvDiC5JwKe88hvKlLNKw5mrZVtudDwiaKIXDRobJu/x7HNE4/a0l4vWiDVJYqPNeW7JhNIp5TemaEFiMvvsK0Y/6CLaa0aOHKGPoyKAPY6N84b3w0TQSnHg2sfzcBVU2q15Kv0FWv7cuZM0vzo/zI6eXQXo4XRnp2TnoKrtcxvBiMZm1MXvjlKfpbVarpiOyas7ZukDyO45gQhV+/z3JiDpISfdb2SfzA6ra8Lco=" /></form>
 
+         <input type="hidden" name="doc_id" id="doc_id" value="2019040204" />
+        <input type="hidden" name="signature_file" id="signature_file" value="monyaphat.png" />
+         <input type="hidden" name="page_count" id="page_count" value="3" />
+         <input type="hidden" name="paper_type" id="paper_type" value="L" />
+   
  
+    
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6AC04513" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="fNBGaDx/kAKz4XPZoGl1XA0oo8xIr0WgO87MDHh8YEKXMUbDRUdhExnSy4B9VThtB7vjWTagFRuzLhsFmutAFIUr96MF8G4PBcrfm4Wfpnr9hbF6lfIEZKqClpcGpDSz+UljsrWvagYAe9+gtz5HpBlsYQOOxiT3SXUOjZ/GoPtzVBIGsMHhsGo5bT9nKksuMpx4xynRBc///i/O3/Um0PTt1ljfDvbawSwzQli754WLzGlkg4esQ9pfKgnV3nZJ" /></form>
+ 
+
+            <script>
+                $(document).on("mousemove", function (event) {
+                    $("#log").text("pageX: " + event.pageX + ", pageY: " + event.pageY);
+                });
+</script>
 
 <!-- Visual Studio Browser Link -->
 <script type="application/json" id="__browserLink_initializationData">
-    {"appName":"Unknown","requestId":"befceb5a1c224e2b9b4cebb54f24857a"}
+    {"appName":"Unknown","requestId":"e4a9b7bd895843a288eca23194d72225"}
 </script>
 <script type="text/javascript" src="http://localhost:50812/f1862ac8173b42efb9fd7ed4817f5b9c/browserLink" async="async"></script>
 <!-- End Browser Link -->

@@ -20,6 +20,11 @@ namespace BLL
                    return _DAL.Update_Upload_date(criteria);
                } 
 
+          public int Update_AttachFile(Model.PO_Document criteria)
+         {
+             return _DAL.Update_AttachFile(criteria);
+         }
+
          public int Update_sign_prepare_date(Model.PO_Document criteria)
          {
              return _DAL.Update_sign_prepare_date(criteria);

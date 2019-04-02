@@ -28,7 +28,10 @@ namespace PR_PO.PROJECT
             {
                 BindGrid();
             }
-
+            else
+            {
+                BindGrid();
+            }
        
 
         }
@@ -37,8 +40,9 @@ namespace PR_PO.PROJECT
         private void BindGrid()
         {
             Class.clsDB DB = new Class.clsDB();
-            string sql = "select po.doc_id,po.doc_name,po.content,po.create_by,po.create_date,po.secure_prepare,";
-            sql += " po.step1,po.step2,po.step3,po.step4,po.secure_approve,po.approve_problem,pr.supplier_name From po_document as po,document as pr";
+            string sql = "select po.doc_id,po.doc_name,po.content,po.create_by,po.create_date,po.secure_prepare,po.paper_type,po.page_count,";
+            sql += " po.step1,po.step2,po.step3,po.step4,po.secure_approve,po.approve_problem,po.attach_file_name,pr.supplier_name";
+            sql += " From po_document as po,document as pr";
             sql += " where po.step1 = 1 and po.doc_id = pr.doc_id  order by po.doc_id desc";
             DataTable dt;
             dt = DB.ExecuteDataTable(sql);
@@ -126,13 +130,54 @@ namespace PR_PO.PROJECT
                 }
 
 
+                LinkButton PO_PDF_APROVE = item.FindControl("PO_PDF_APROVE") as LinkButton;
+                if (PO_PDF_APROVE != null)
+                {
+                    mgr1.RegisterPostBackControl(PO_PDF_APROVE);
+                }
+
+                
+
                 LinkButton lnkDownload = item.FindControl("lnkDownload") as LinkButton;
                 if (lnkDownload != null)
                 {
                     mgr1.RegisterPostBackControl(lnkDownload);
                 }
 
-                
+                System.Web.UI.WebControls.Image img_complete = item.FindControl("img_complete") as System.Web.UI.WebControls.Image;
+                if (img_complete != null)
+                {
+
+                    if (Convert.ToBoolean(DataBinder.Eval(item.DataItem, "attach_file_name")))
+                    {
+                        img_complete.ImageUrl = "Images/pdf.png";
+                    }
+                    else
+                    {
+                        img_complete.ImageUrl = "Images/wait.png";
+                    }
+                }
+
+
+                System.Web.UI.WebControls.Image img_zip = item.FindControl("img_zip") as System.Web.UI.WebControls.Image;
+                if (img_zip != null)
+                {
+
+                    if (Convert.ToBoolean(DataBinder.Eval(item.DataItem, "attach_file_name")))
+                    {
+                        img_zip.ImageUrl = "Images/zip.png";
+                    }
+                    else
+                    {
+                        img_zip.ImageUrl = "Images/wait.png";
+                    }
+                }
+
+
+
+
+
+
 
                 ImageButton myImageButton2 = item.FindControl("step2") as ImageButton;
                 if (myImageButton2 != null)
@@ -278,6 +323,50 @@ namespace PR_PO.PROJECT
                     Response.End();
                 }
             }
+
+
+
+                       if (e.CommandName == "PO_PDF_APPROVE")
+                       {
+
+                           string filename = e.CommandArgument.ToString();
+                           try
+                           {
+                               if (filename != "")
+                               {
+
+                                   Model.Log L = new Model.Log();
+                                   Helper.Utility Log = new Helper.Utility();
+
+                                   L.content = "View PO Approve " + filename + ".pdf";
+                                   L.create_by = Session["EMAIL"].ToString();
+                                   Log.WriteLog(L);
+                                   string path = MapPath("PO_PdfApprove/" + filename + ".pdf");
+
+                                   //if (!File.Exists(path))
+                                   //{
+                                   //    Response.Write("<script>alert('ไฟล์นี้ยังไม่ได้ถูก Sign prepare.');</script>");
+                                   //    return;
+                                   //}
+
+                                   byte[] bts = System.IO.File.ReadAllBytes(path);
+                                   Response.Clear();
+                                   Response.ClearHeaders();
+                                   Response.AddHeader("Content-Type", "Application/octet-stream");
+                                   Response.AddHeader("Content-Length", bts.Length.ToString());
+                                   Response.AddHeader("Content-Disposition", "attachment;   filename=" + filename + ".pdf");
+                                   Response.BinaryWrite(bts);
+                                   Response.Flush();
+                                   Response.End();
+                               }
+                           }
+                           catch(FileNotFoundException Exception)
+                           {
+
+                           }
+                       }
+
+
 
 
 

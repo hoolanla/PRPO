@@ -8,7 +8,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - ODS Application</title>
+    <title><%: Page.Title %> E-Sign Application</title>
 
 
     <%---------------------------------------------------------------%>
@@ -116,7 +116,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - FUJITSU ODS Application</p>   <% Response.Write(Session["TITLE"] + " " + Session["NAME"] + "  " + Session["SURNAME"] + " <span style= 'color:red'>is online.<span>"); %>
+                <p>&copy; <%: DateTime.Now.Year %> - FUJITSU E-Sign Application</p>   <% Response.Write(Session["TITLE"] + " " + Session["NAME"] + "  " + Session["SURNAME"] + " <span style= 'color:red'>is online.<span>"); %>
             </footer>
         </div>
     </form>
