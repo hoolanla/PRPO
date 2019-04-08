@@ -89,21 +89,13 @@ namespace DAL
 
         public List<Model.Account> getEmail()
         {
-            //string connStr = Properties.Settings.Default.InventoryControl_ConnectionString;
-            //SqlConnection conn = Common.DataHelper.getSQLServerConnectionObject(connStr);
+      
             DataSet ds = new DataSet();
             String sql;
             sql = "Select * From account";
             Class.clsDB db = new Class.clsDB();
             ds = db.ExecuteDataSet(sql);
-            
-            //SqlDataAdapter adp = new SqlDataAdapter("usp_Permission_Read", conn);
-            //adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PRJ_Code", criteria.PRJ_Code));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@UserAccount", criteria.UserAccount));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PAG_Code", criteria.PAG_Code));
-            //  adp.Fill(ds);
-
+     
       return ds.Tables[0].AsEnumerable().Select(s => new Model.Account
             {
                 Title = s.Field<string>("Title"),
@@ -118,20 +110,14 @@ namespace DAL
 
         public List<Model.Account> getEmail_Level1()
         {
-            //string connStr = Properties.Settings.Default.InventoryControl_ConnectionString;
-            //SqlConnection conn = Common.DataHelper.getSQLServerConnectionObject(connStr);
+       
             DataSet ds = new DataSet();
             String sql;
             sql = "Select * From account where level='1'";
             Class.clsDB db = new Class.clsDB();
             ds = db.ExecuteDataSet(sql);
             db.Close();
-            //SqlDataAdapter adp = new SqlDataAdapter("usp_Permission_Read", conn);
-            //adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PRJ_Code", criteria.PRJ_Code));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@UserAccount", criteria.UserAccount));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PAG_Code", criteria.PAG_Code));
-            //  adp.Fill(ds);
+       
 
             return ds.Tables[0].AsEnumerable().Select(s => new Model.Account
             {
@@ -260,6 +246,8 @@ namespace DAL
             sql += "content,";
             sql += "supplier_id,";
             sql += "supplier_name,";
+            sql += "attach_file_name,";
+            sql += "comment,";
             sql += "secure_prepare) Values(";
             sql += "'" + criteria.doc_id + "',";
             sql += "'" + criteria.doc_name + "',";
@@ -267,6 +255,8 @@ namespace DAL
             sql += "'" + criteria.content + "',";
             sql += "'" + criteria.suplier_id + "',";
             sql += "'" + criteria.supplier_name + "',";
+            sql += "'" + criteria.attach_file_name + "',";
+            sql += "'" + criteria.comment + "',";
             sql += "'" + criteria.secure_prepare + "')";
 
             
@@ -300,29 +290,13 @@ namespace DAL
 
         }
 
-        public int Update_sign_prepare_date(Model.Criteria.Document criteria)
+
+        public int Update_AttachFile(Model.Criteria.Document criteria,int val)
         {
 
 
             string sql;
-            sql = "Update document SET sign_prepare_date = '" + criteria.sign_prepare_date + "',step2=1 ";
-            sql += " WHERE doc_id='" + criteria.doc_id + "'";
-
-            Class.clsDB db = new Class.clsDB();
-            int ret;
-            ret = db.ExecuteNonQuery(sql);
-            db.Close();
-            return ret;
-
-
-        }
-
-        public int Update_AttachFile(Model.Criteria.Document criteria)
-        {
-
-
-            string sql;
-            sql = "Update document SET attach_file_name = 0";
+            sql = "Update document SET attach_file_name = " + val;
             sql += " WHERE doc_id='" + criteria.doc_id + "'";
 
             Class.clsDB db = new Class.clsDB();
@@ -339,7 +313,7 @@ namespace DAL
 
 
             string sql;
-            sql = "Update document SET sign_prepare_date = '" + criteria.sign_prepare_date + "',step3=1 ";
+            sql = "Update document SET sign_prepare_date = '" + criteria.sign_prepare_date + "',step2=1 ";
             sql += " WHERE doc_id='" + criteria.doc_id + "'";
 
             Class.clsDB db = new Class.clsDB();
@@ -401,7 +375,23 @@ namespace DAL
 
         }
 
-        public int Update_send_mail_approve_date(Model.Criteria.Document criteria)
+        public int Update_send_mail_Request(Model.Criteria.Document criteria)
+        {
+
+
+            string sql;
+            sql = "Update document SET send_mail_approve_date = '" + criteria.send_mail_approve_date + "',step2=1,secure_approve='" + criteria.secure_approve + "'";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+        }
+
+        public int Update_send_mail_Review(Model.Criteria.Document criteria)
         {
 
 
@@ -416,7 +406,6 @@ namespace DAL
             return ret;
 
         }
-
 
         public string Get_PageCount(string doc_id)
         {

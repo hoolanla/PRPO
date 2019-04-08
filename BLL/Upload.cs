@@ -18,9 +18,9 @@ namespace BLL
             return _uplDAL.getEmail();
         }
 
-                public int Update_AttachFile(Model.Criteria.Document criteria)
+                public int Update_AttachFile(Model.Criteria.Document criteria,int val)
         {
-            return _uplDAL.Update_AttachFile(criteria);
+            return _uplDAL.Update_AttachFile(criteria,val);
         }
 
         public List<Model.Document> getAll_Document(Model.Criteria.Document criteria)
@@ -69,13 +69,9 @@ namespace BLL
         }
 
 
-        public int Update_sign_prepare_date(Model.Criteria.Document criteria)
-        {
-            return _uplDAL.Update_sign_prepare_date(criteria);
-        }
 
 
-                public int Update_sign_review_date(Model.Criteria.Document criteria)
+       public int Update_sign_review_date(Model.Criteria.Document criteria)
         {
             return _uplDAL.Update_sign_review_date(criteria);
         }
@@ -89,9 +85,14 @@ namespace BLL
             return _uplDAL.Update_sign_approve_problem(criteria);
         }
 
-        public int Update_send_mail_approve_date(Model.Criteria.Document criteria)
+        public int Update_send_mail_Request(Model.Criteria.Document criteria)
         {
-            return _uplDAL.Update_send_mail_approve_date(criteria);
+            return _uplDAL.Update_send_mail_Request(criteria);
+        }
+
+        public int Update_send_mail_Review(Model.Criteria.Document criteria)
+        {
+            return _uplDAL.Update_send_mail_Review(criteria);
         }
 
         public string get_Pagecount(string doc_id)

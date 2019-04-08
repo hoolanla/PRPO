@@ -202,7 +202,6 @@
     <Content Include="PO_DataDocument.aspx" />
     <Content Include="DataDocument2.aspx" />
     <Content Include="DataDocument.aspx" />
-    <Content Include="FrmApplicationPrepare.aspx" />
     <Content Include="Images\ActualSizeHS.png" />
     <Content Include="Images\approve.png" />
     <Content Include="Images\check.png" />
@@ -651,13 +650,6 @@
     </Compile>
     <Compile Include="DataDocument.aspx.designer.cs">
       <DependentUpon>DataDocument.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FrmApplicationPrepare.aspx.cs">
-      <DependentUpon>FrmApplicationPrepare.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FrmApplicationPrepare.aspx.designer.cs">
-      <DependentUpon>FrmApplicationPrepare.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageAccount.aspx.cs">
       <DependentUpon>ManageAccount.aspx</DependentUpon>

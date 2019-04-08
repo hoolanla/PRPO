@@ -57,7 +57,7 @@ namespace Model
         public int po_flag { get; set; }
         public string supplier_name { get; set; }
         public string suplier_id { get; set; }
-       
+        public string comment { get; set; }
 
 
     }
@@ -89,6 +89,7 @@ namespace Model
         public int po_flag { get; set; }
         public string supplier_name { get; set; }
         public string suplier_id { get; set; }
+        public string comment { get; set; }
 
 
 

@@ -11,6 +11,38 @@ namespace DAL
     {
 
 
+        public int Update_send_mail_Request(Model.Criteria.Document criteria)
+        {
+
+
+            string sql;
+            sql = "Update po_document SET send_mail_approve_date = '" + criteria.send_mail_approve_date + "',step2=1,secure_approve='" + criteria.secure_approve + "'";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+        }
+
+        public int Update_send_mail_Review(Model.Criteria.Document criteria)
+        {
+
+
+            string sql;
+            sql = "Update po_document SET send_mail_approve_date = '" + criteria.send_mail_approve_date + "',step3=1,secure_approve='" + criteria.secure_approve + "'";
+            sql += " WHERE doc_id='" + criteria.doc_id + "'";
+
+            Class.clsDB db = new Class.clsDB();
+            int ret;
+            ret = db.ExecuteNonQuery(sql);
+            db.Close();
+            return ret;
+
+        }
+
         public string InsertDocument_po_step1(Model.PO_Document criteria)
         {
 
@@ -22,13 +54,14 @@ namespace DAL
             sql += "doc_name,";
             sql += "create_by,";
             sql += "content,";
+            sql += "comment,";
             sql += "secure_prepare) Values(";
             sql += "'" + criteria.doc_id + "',";
             sql += "'" + criteria.pr_doc_id + "',";
             sql += "'" + criteria.doc_name + "',";
             sql += "'" + criteria.create_by + "',";
             sql += "'" + criteria.content + "',";
-
+            sql += "'" + criteria.comment + "',";
             sql += "'" + criteria.secure_prepare + "')";
 
 
@@ -95,12 +128,12 @@ namespace DAL
 
         }
 
-        public int Update_AttachFile(Model.PO_Document criteria)
+        public int Update_AttachFile(Model.PO_Document criteria,int val)
         {
 
 
             string sql;
-            sql = "Update po_document SET attach_file_name = 0";
+            sql = "Update po_document SET attach_file_name = " + val;
             sql += " WHERE doc_id='" + criteria.doc_id + "'";
 
             Class.clsDB db = new Class.clsDB();

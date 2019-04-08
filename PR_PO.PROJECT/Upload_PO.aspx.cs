@@ -181,6 +181,7 @@ namespace PR_PO.PROJECT
                             Doc.secure_prepare = Session["EMAIL"].ToString();
                             Doc.attach_file_name = Doc.doc_id + ".zip";
                             Doc.content = Content.Text;
+                            Doc.comment = comment.Value;
                             Doc.pr_flag = 1;
                             
 
@@ -313,13 +314,14 @@ namespace PR_PO.PROJECT
                     uploadfile.SaveAs(Server.MapPath("~/PO_AttachFiles/") + fileName);
                     myCollection.Add(Server.MapPath("~/PO_AttachFiles/") + fileName);
                     lblMessage.Text += fileName + "  Saved  Successfully<br>";
-            
+                    BLL.PO _BLL = new BLL.PO();
+                    _BLL.Update_AttachFile(Doc, 1);
                 } 
 
                 else
                 {
                     BLL.PO _BLL = new BLL.PO();
-                    _BLL.Update_AttachFile(Doc);
+                    _BLL.Update_AttachFile(Doc,0);
                 }
             }
 

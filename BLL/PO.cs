@@ -20,9 +20,9 @@ namespace BLL
                    return _DAL.Update_Upload_date(criteria);
                } 
 
-          public int Update_AttachFile(Model.PO_Document criteria)
+          public int Update_AttachFile(Model.PO_Document criteria,int val)
          {
-             return _DAL.Update_AttachFile(criteria);
+             return _DAL.Update_AttachFile(criteria,val);
          }
 
          public int Update_sign_prepare_date(Model.PO_Document criteria)
@@ -52,5 +52,17 @@ namespace BLL
 
                    return _DAL.Update_sign_approve_date(criteria);
                }
+
+
+        public int Update_send_mail_Request(Model.Criteria.Document criteria)
+        {
+            return _DAL.Update_send_mail_Request(criteria);
+        }
+
+        public int Update_send_mail_Review(Model.Criteria.Document criteria)
+        {
+            return _DAL.Update_send_mail_Review(criteria);
+        }
+
     }
 }

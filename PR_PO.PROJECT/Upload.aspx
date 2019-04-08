@@ -83,44 +83,24 @@
 </script>
 
 
-<%--        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#<%=form1.ClientID%>").validate({
-                errorElement: "em",
-                errorPlacement: function (error, element) {
-                    error.insertAfter(element.parent());
-                },
-                errorClass: "hasError"
-            });
-            //Add rules for File upload control
-            $("#<%=FileUpload1.ClientID%>").rules('add', {
-                required: true,
-                accept: "image/jpeg,image/jpg",
-                fileSize: true,
-                messages: {
-                    accept: "Invalid file format"
-                }
-            });
-            //custom validation method for file size
-            $.validator.addMethod("fileSize", function (value, element) {
-                files = element.files;
-                size = files[0].size;
-                if (size > 71680) {
-                    return false;
-                }
-                return true;
-            }, 'file should be upto 70 kb');
-            $(document).on("change", function () {
-                $("#<%=form1.ClientID%>").valid();
-            });
-        });
 
-    </script>--%>
 
         <div class="row">
         <div class="col-md-4">
         
         </div>
+
+
+
+
+<div class="form-group">
+  <label for="comment">Comment</label>
+  <textarea class="form-control rounded-0" id="comment" rows="3" runat="server"></textarea>
+</div>
+
+
+
+
         <div class="col-md-4">
  
 
@@ -130,11 +110,13 @@ onclick="btnUpload_Click" />
 
          
         </div>
-        <%--<div class="col-md-4">--%>
-     
-        <%--</div>--%>
+    
     </div>    
-         
+
+
+
+
+
 
 </asp:Content>
 

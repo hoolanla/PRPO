@@ -192,7 +192,7 @@ namespace PR_PO.PROJECT
                    _DOC.secure_approve = tmpMail;
                    _DOC.doc_id = Session["DOC_ID"].ToString();
                    BLL.Upload _BLL = new BLL.Upload();
-                   _BLL.Update_send_mail_approve_date(_DOC);
+                 //  _BLL.Update_send_mail_approve_date(_DOC);
 
 
                    m_content = Session["CONTENT"].ToString();
@@ -218,7 +218,7 @@ namespace PR_PO.PROJECT
           {
               BLL.Upload objBLL = new BLL.Upload();
               var list = new List<Model.Account>();
-              list = objBLL.getEmail_Level1();
+              list = objBLL.getEmail();
               return list;
           }
 

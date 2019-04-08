@@ -151,7 +151,7 @@ namespace PR_PO.PROJECT
 
                 _Doc.sign_prepare_date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 _Doc.doc_id = doc_id.Value;
-                _BLL.Update_sign_prepare_date(_Doc);
+                _BLL.Update_send_mail_Request(_Doc);
 
 
                 PdfToImage("", _Doc.doc_id);

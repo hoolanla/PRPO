@@ -39,11 +39,11 @@ namespace PR_PO.PROJECT
                 Response.Redirect("~/Authorize.aspx");
             }
 
-            if (Session["LEVEL"].ToString() != "2")
-            {
-                Response.Write("<script>alert('คุณไม่มีสิทธิ์ Upload เอกสาร');</script>");
-                Response.Redirect("~/DataDocument.aspx");
-            }
+            //if (Session["LEVEL"].ToString() != "2")
+            //{
+            //    Response.Write("<script>alert('คุณไม่มีสิทธิ์ Upload เอกสาร');</script>");
+            //    Response.Redirect("~/DataDocument.aspx");
+            //}
 
             if (Request.QueryString["doc_id"] != null)
             {
@@ -186,7 +186,7 @@ initCombo();
                             Doc.pr_flag = 1;
                             Doc.suplier_id = ddlCustomer.SelectedValue.ToString();
                             Doc.supplier_name = ddlCustomer.Text;
-
+                            Doc.comment = comment.Value;
                             string s_newfilename = Doc.doc_id + fileExtension;
                             fu.PostedFile.SaveAs(folderPath + s_newfilename);
                             Thread.Sleep(3000);
@@ -316,14 +316,18 @@ initCombo();
                     uploadfile.SaveAs(Server.MapPath("~/AttachFiles/") + fileName);
                     myCollection.Add(Server.MapPath("~/AttachFiles/") + fileName);
                     lblMessage.Text += fileName + "  Saved  Successfully<br>";
-            
+
+                    BLL.Upload _BLL = new BLL.Upload();
+                    _BLL.Update_AttachFile(Doc,1);
+
+
                 } 
 
                 else  // Update AttachFile 1 = 0
                 {
 
                     BLL.Upload _BLL = new BLL.Upload();
-                    _BLL.Update_AttachFile(Doc);
+                    _BLL.Update_AttachFile(Doc,0);
                 }
             }
 
