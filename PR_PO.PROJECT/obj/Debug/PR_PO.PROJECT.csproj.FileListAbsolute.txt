@@ -1,5 +1,5 @@
-C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\obj\Debug\PR_PO.PROJECT.csprojResolveAssemblyReference.cache
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\obj\Debug\PR_PO.PROJECT.dll.licenses
+C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\obj\Debug\PR_PO.PROJECT.csprojResolveAssemblyReference.cache
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PR_PO.PROJECT.dll.config
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PR_PO.PROJECT.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PR_PO.PROJECT.pdb
@@ -9,6 +9,7 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\AspNet.ScriptManager.jQuery.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\BLL.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\EntityFramework.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\EntityFramework.SqlServer.dll
+C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\EPPlus.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Ghostscript.NET.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Helper.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Ionic.Zip.dll
@@ -39,10 +40,12 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PdfSharp.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Spire.Pdf.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\System.Web.Optimization.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\System.Web.Providers.dll
+C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Telerik.Web.UI.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\WebGrease.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\DAL.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Spire.License.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\BLL.pdb
+C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\EPPlus.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Ghostscript.NET.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Helper.pdb
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\itextsharp.xml
@@ -52,6 +55,7 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PdfSharp.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\PdfSharp.Charting.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Spire.Pdf.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\System.Web.Optimization.xml
+C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Telerik.Web.UI.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Antlr3.Runtime.pdb
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Newtonsoft.Json.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Microsoft.AspNet.FriendlyUrls.xml
@@ -75,5 +79,3 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\de\PdfSharp.resources.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\de\PdfSharp.Charting.resources.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\obj\Debug\PR_PO.PROJECT.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\obj\Debug\PR_PO.PROJECT.pdb
-C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Telerik.Web.UI.dll
-C:\_CODE\WEB_APP\PR_PO\PR_PO\PR_PO.PROJECT\bin\Telerik.Web.UI.xml

@@ -18,6 +18,19 @@ namespace Model
 
     }
 
+
+    public class Supplier
+    {
+        public string supp_company { get; set; }
+        public string supp_code { get; set; }   //key
+        public string supp_name { get; set; }
+        public string supp_short_name { get; set; }
+        public string supp_address_1 { get; set; }
+        public string supp_address_2 { get; set; }
+        public string supp_contact_person { get; set; }
+        public string supp_contact_position { get; set; }
+
+    }
     public class Document
     {
         public int doc_id_int { get; set; }

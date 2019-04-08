@@ -51,7 +51,10 @@ namespace BLL
         }
 
 
-      
+          public bool InsertSupplier( List<Model.Supplier> lstSupp)
+        {
+            return _uplDAL.InsertSupplier(lstSupp);
+        }
 
 
         public int Delete_Document(Model.Criteria.Document criteria)

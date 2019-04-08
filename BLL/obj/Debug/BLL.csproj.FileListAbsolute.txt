@@ -17,6 +17,6 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\bin\Debug\MySql.Data.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\bin\Debug\DAL.pdb
 C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\bin\Debug\Model.pdb
 C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\bin\Debug\MySql.Data.xml
+C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\obj\Debug\BLL.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\obj\Debug\BLL.pdb
-C:\_CODE\WEB_APP\PR_PO\PR_PO\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache

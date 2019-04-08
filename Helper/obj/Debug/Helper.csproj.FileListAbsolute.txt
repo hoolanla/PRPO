@@ -19,6 +19,8 @@ C:\_CODE\WEB_APP\ODS\ODS\Helper\bin\Debug\Spire.License.xml
 C:\_CODE\WEB_APP\ODS\ODS\Helper\bin\Debug\MySql.Data.xml
 C:\_CODE\WEB_APP\ODS\ODS\Helper\obj\Debug\Helper.dll
 C:\_CODE\WEB_APP\ODS\ODS\Helper\obj\Debug\Helper.pdb
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.Properties.Resources.resources
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.csproj.GenerateResource.Cache
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\Helper.dll.config
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\Helper.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\Helper.pdb
@@ -35,8 +37,6 @@ C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\Spire.Pdf.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\DAL.pdb
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\Spire.License.xml
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\bin\Debug\MySql.Data.xml
-C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.Properties.Resources.resources
-C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.csproj.GenerateResource.Cache
+C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.dll
 C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.pdb
-C:\_CODE\WEB_APP\PR_PO\PR_PO\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache

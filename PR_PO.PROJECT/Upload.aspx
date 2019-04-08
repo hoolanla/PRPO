@@ -40,7 +40,7 @@
 
     
     <div class="form-group">
-  <label for="ddlCustomer">Supplier :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp       </label><telerik:RadComboBox ID="ddlCustomer" Runat="server"   EnableLoadOnDemand="true" DataTextField="cust_name" DataValueField="cust_id" ItemsPerRequest="10" EnableVirtualScrolling="true" Width="300px" AutoPostBack="False">
+  <label for="ddlCustomer">Supplier :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp       </label><telerik:RadComboBox ID="ddlCustomer" Runat="server"   EnableLoadOnDemand="true" DataTextField="supp_short_name" DataValueField="supp_code" ItemsPerRequest="10" EnableVirtualScrolling="true" Width="300px" AutoPostBack="False">
         </telerik:RadComboBox>
 <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCustomer"
           CssClass="text-danger" ErrorMessage="Please select one item." />

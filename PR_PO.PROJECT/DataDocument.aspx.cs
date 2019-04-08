@@ -472,6 +472,13 @@ namespace PR_PO.PROJECT
             if (e.CommandName == "step3")
             {
 
+                       if (!Convert.ToBoolean(DataBinder.Eval(dataItem.DataItem, "step2")))
+                       {
+                           RadWindowManager1.RadAlert("ไม่สามารถส่งเมล์ Review ได้ต้องทำการ Request ก่อน", 200, 100, "Alert", "callBackFn");
+                           return;
+
+                       }
+
                 int idx = Convert.ToInt32(e.CommandArgument);
                 if (Session["LEVEL"].ToString() != "2")
                 {
@@ -510,6 +517,15 @@ namespace PR_PO.PROJECT
 
             if (e.CommandName == "step4")
             {
+
+
+                if (!Convert.ToBoolean(DataBinder.Eval(dataItem.DataItem, "step3")))
+                {
+                    RadWindowManager1.RadAlert("ไม่สามารถส่งเมล์ Approve ได้ต้องทำการ Review ก่อน", 200, 100, "Alert", "callBackFn");
+                    return;
+
+                }
+
 
                 int idx = Convert.ToInt32(e.CommandArgument);
                 if (Session["LEVEL"].ToString() != "2")
@@ -597,7 +613,7 @@ namespace PR_PO.PROJECT
             if (e.CommandName == "OPEN_PO")
             {
 
-
+         
                 if (Convert.ToBoolean(DataBinder.Eval(dataItem.DataItem, "step4")))
                 {
 
@@ -611,6 +627,7 @@ namespace PR_PO.PROJECT
                 }
                 else
                 {
+                    RadWindowManager1.RadAlert("ไม่สามารถเปิด PO ได้ต้องทำ PR ให้เสร็จทุกขั้นตอนก่อน", 200, 100, "Alert", "callBackFn");
                     return;
                 }
             }

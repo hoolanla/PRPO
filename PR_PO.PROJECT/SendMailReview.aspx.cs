@@ -14,6 +14,7 @@ using Spire.Pdf;
 using System.Text;
 using System.Data;
 using System.Configuration;
+using System.Threading;
 
 
 
@@ -40,17 +41,19 @@ namespace PR_PO.PROJECT
 
             if (!IsPostBack)
             {
-
+                if( Request.QueryString["step"].ToString() == "0")
+                {
+                    Response.Write("<script>alert('ไม่สามารถส่งเมล์ Review ได้ต้อง Sign eequest ก่อน');</script>");
+                    Thread.Sleep(3000);
+                   
+                  Response.Redirect("DataDocument.aspx");
+                }
 
                 Session["EMAIL"] = Request.QueryString["email"].ToString();
                 Session["DOC_ID"] = Request.QueryString["doc_id"].ToString();
                 Session["CONTENT"] = Request.QueryString["content"].ToString();
                 m_doc_id = Request.QueryString["doc_id"].ToString();
-          //      m_email = 
-
-
-                
-             //   initDataAccount(m_email);
+      
                 initListbox();
                 initDocumentbyID(m_doc_id);
             }

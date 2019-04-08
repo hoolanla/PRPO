@@ -5,6 +5,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
   
 
+    <script type="text/javascript">
+        function callBackFn(arg) {
+            alert("this is the client-side callback function. The RadAlert returned: " + arg);
+        }
+</script>
+
     <br />
     <br />
 
@@ -22,10 +28,11 @@
 
       <telerik:RadScriptManager ID="mgr1" runat="server"></telerik:RadScriptManager>
             <telerik:RadAjaxManager ID="ajxMgr" runat="server"></telerik:RadAjaxManager>
-
+               <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
+                     </telerik:RadWindowManager>
                  <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
-                     <telerik:RadSearchBox ID="RadSearchBox1" runat="server">
-                     </telerik:RadSearchBox>
+                  
+                  
         </telerik:RadAjaxLoadingPanel>
     <telerik:RadAjaxPanel ID="RadAjaxPanel1"  runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
 
@@ -102,7 +109,7 @@
                        <telerik:GridTemplateColumn HeaderText="Review" AllowFiltering="false">
         <ItemTemplate>
                   <asp:imagebutton  ID="step3" runat="server" CommandName="step3"
-    PostBackUrl='<%# "SendMailReview.aspx?doc_id=" + Eval("doc_id") + "&email=" + Session["EMAIL"].ToString() + "&content=" + Eval("content") %>' 
+    PostBackUrl='<%# "SendMailReview.aspx?doc_id=" + Eval("doc_id") + "&email=" + Session["EMAIL"].ToString() + "&content=" + Eval("content") + "&step=" + Eval("step2") %>' 
                         CommandArgument='<%# Eval("step3") %>' ></asp:imagebutton>
      </ItemTemplate>
        </telerik:GridTemplateColumn>
@@ -111,7 +118,7 @@
         <telerik:GridTemplateColumn HeaderText="Approve" AllowFiltering="false">
         <ItemTemplate>
                   <asp:imagebutton  ID="step4" runat="server" CommandName="step4" 
-                      PostBackUrl='<%# "SendMailApprove.aspx?doc_id=" + Eval("doc_id") + "&email=" + Session["EMAIL"].ToString() + "&content=" + Eval("content") %>' 
+                      PostBackUrl='<%# "SendMailApprove.aspx?doc_id=" + Eval("doc_id") + "&email=" + Session["EMAIL"].ToString() + "&content=" + Eval("content")+"&step=" + Eval("step3") %>' 
                        CommandArgument='<%# Eval("step4") %>' ></asp:imagebutton>
      </ItemTemplate>
        </telerik:GridTemplateColumn>

@@ -19,7 +19,7 @@ namespace DAL
             try
             {
                 DataSet set = new DataSet();
-                string strSQL = "Select * From customer order by cust_name ";
+                string strSQL = "Select * From supplier order by supp_short_name ";
               Class.clsDB sdb1 = new Class.clsDB();
                 set = sdb1.ExecuteDataSet(strSQL);
                 sdb1.Close();
@@ -44,7 +44,7 @@ namespace DAL
                     id = "0";
                 }
                 DataSet set = new DataSet();
-                string strSQL = "Select * From customer Where cust_id = " + id + " order by cust_name ";
+                string strSQL = "Select * From supplier Where supp_code = " + id + " order by supp_short_name ";
                 Class.clsDB sdb1 = new Class.clsDB();
                 set = sdb1.ExecuteDataSet(strSQL);
                 sdb1.Close();
@@ -174,20 +174,14 @@ namespace DAL
 
         public List<Model.Account> getEmail_Level0()
         {
-            //string connStr = Properties.Settings.Default.InventoryControl_ConnectionString;
-            //SqlConnection conn = Common.DataHelper.getSQLServerConnectionObject(connStr);
+    
             DataSet ds = new DataSet();
             String sql;
             sql = "Select * From account where level='0'";
             Class.clsDB db = new Class.clsDB();
             ds = db.ExecuteDataSet(sql);
             db.Close();
-            //SqlDataAdapter adp = new SqlDataAdapter("usp_Permission_Read", conn);
-            //adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PRJ_Code", criteria.PRJ_Code));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@UserAccount", criteria.UserAccount));
-            //adp.SelectCommand.Parameters.Add(new SqlParameter("@PAG_Code", criteria.PAG_Code));
-            //  adp.Fill(ds);
+       
 
             return ds.Tables[0].AsEnumerable().Select(s => new Model.Account
             {
@@ -198,6 +192,61 @@ namespace DAL
             }).ToList();
 
         }
+
+        public bool InsertSupplier( List<Model.Supplier> lstSupp)
+        {
+
+                int k;
+                k = lstSupp.Count();
+            
+                for (int i = 0; i < k; i++)
+                {
+
+                    string sql = null;
+                    Model.Supplier m_supp = new Model.Supplier();
+                    m_supp = (Model.Supplier)lstSupp[i];
+
+                    sql += "Insert into supplier(supp_company,";
+                    sql += "supp_code,";
+                    sql += "supp_name,";
+                    sql += "supp_short_name,";
+                    sql += "supp_address_1,";
+                    sql += "supp_address_2,";
+                    sql += "supp_contact_person,";
+                    sql += "supp_contact_position) Values('";
+                    sql += m_supp.supp_company + "','";
+                    sql += m_supp.supp_code + "','";
+                    sql += m_supp.supp_name + "','";
+                    sql += m_supp.supp_short_name + "','";
+                    sql += m_supp.supp_address_1 + "','";
+                    sql += m_supp.supp_address_2 + "','";
+                    sql += m_supp.supp_contact_person + "','";
+                    sql += m_supp.supp_contact_position + "')";
+
+
+
+                    try
+                    {
+                        Class.clsDB db = new Class.clsDB();
+                        int ret;
+                        ret = db.ExecuteNonQuery(sql);
+                        db.Close();
+                    }
+                    catch
+                    {
+
+                    }
+
+
+                }
+      
+
+
+            return true;
+        }
+
+
+
 
         public string InsertDocument_step1(Model.Criteria.Document criteria)
         {
